@@ -1,0 +1,12 @@
+# Application files
+snowpack.config.js
+svelte.config.js
+
+# Generated files
+node_modules
+
+# Editor specific
+.vscode
+
+# Build folders
+build
