@@ -7,6 +7,7 @@ devDependencies:
   '@snowpack/plugin-typescript': 1.2.1_typescript@4.1.5
   '@testing-library/jest-dom': 5.11.9
   '@testing-library/svelte': 3.0.3_svelte@3.32.3
+  '@tsconfig/svelte': 1.0.10
   '@types/snowpack-env': 2.3.3
   babel-jest: 26.6.3
   jest: 26.6.3
@@ -1288,6 +1289,10 @@ packages:
       svelte: 3.x
     resolution:
       integrity: sha512-GxafAllShGM2nkntFGURZ7fYVlUYwv7K62lqv1aFqtTYzzeZ2Cu8zTVhtE/Qt3bk2zMl6+FPKP03wjLip/G8mA==
+  /@tsconfig/svelte/1.0.10:
+    dev: true
+    resolution:
+      integrity: sha512-EBrpH2iXXfaf/9z81koiDYkp2mlwW2XzFcAqn6qh7VKyP8zBvHHAQzNhY+W9vH5arAjmGAm5g8ElWq6YmXm3ig==
   /@types/aria-query/4.2.1:
     dev: true
     resolution:
@@ -5192,6 +5197,7 @@ specifiers:
   '@snowpack/plugin-typescript': ^1.2.0
   '@testing-library/jest-dom': ^5.11.9
   '@testing-library/svelte': ^3.0.3
+  '@tsconfig/svelte': ^1.0.10
   '@types/snowpack-env': ^2.3.2
   babel-jest: ^26.6.3
   jest: ^26.6.3
