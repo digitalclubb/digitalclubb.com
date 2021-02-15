@@ -4,7 +4,7 @@ import { render } from '@testing-library/svelte';
 import App from './App';
 
 test('shows application renders properly', () => {
-    const { getByText } = render(App);
-  
-    expect(getByText('Hello, world!')).toBeInTheDocument();
+	const { getByText } = render(App);
+
+	expect(getByText('Hello, world!')).toBeInTheDocument();
 });
