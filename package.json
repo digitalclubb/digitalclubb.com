@@ -6,7 +6,8 @@
 		"prettier:write": "prettier --write '**/*.{css,ts,svelte,js,json}'",
 		"prettier:check": "prettier --check '**/*.{css,ts,svelte,js,json}'",
 		"test": "jest",
-		"test:watch": "npm run test -- --watch"
+		"test:watch": "npm run test -- --watch",
+		"test:types": "tsc --noEmit"
 	},
 	"dependencies": {
 		"svelte": "^3.24.0"
