@@ -1,0 +1,115 @@
+/* Prose styles for markdown content */
+.prose {
+	line-height: var(--leading-relaxed);
+	color: var(--color-text);
+}
+
+.prose > * + * {
+	margin-block-start: var(--space-md);
+}
+
+.prose h2 {
+	font-size: var(--text-xl);
+	font-weight: 600;
+	margin-block-start: var(--space-xl);
+	margin-block-end: var(--space-sm);
+}
+
+.prose h3 {
+	font-size: var(--text-lg);
+	font-weight: 600;
+	margin-block-start: var(--space-lg);
+	margin-block-end: var(--space-xs);
+}
+
+.prose h4 {
+	font-size: var(--text-base);
+	font-weight: 600;
+	margin-block-start: var(--space-lg);
+	margin-block-end: var(--space-xs);
+}
+
+.prose p {
+	max-inline-size: var(--measure);
+}
+
+.prose strong {
+	font-weight: 600;
+}
+
+.prose a {
+	text-decoration: underline;
+}
+
+.prose blockquote {
+	padding-inline-start: var(--space-md);
+	border-inline-start: 3px solid var(--color-border-strong);
+	color: var(--color-text-secondary);
+	font-style: italic;
+}
+
+.prose ul,
+.prose ol {
+	padding-inline-start: var(--space-md);
+	max-inline-size: var(--measure);
+}
+
+.prose ul {
+	list-style: disc;
+}
+
+.prose ol {
+	list-style: decimal;
+}
+
+.prose li + li {
+	margin-block-start: var(--space-xs);
+}
+
+.prose li > ul,
+.prose li > ol {
+	margin-block-start: var(--space-xs);
+}
+
+.prose code {
+	background-color: var(--color-code-bg);
+	padding: 0.15em 0.35em;
+	border-radius: 3px;
+	font-size: 0.875em;
+}
+
+.prose pre {
+	background-color: var(--color-code-bg);
+	padding: var(--space-md);
+	border-radius: 6px;
+	overflow-x: auto;
+	font-size: var(--text-sm);
+	line-height: var(--leading-normal);
+	border: 1px solid var(--color-border);
+}
+
+.prose pre code {
+	background: none;
+	padding: 0;
+	border-radius: 0;
+	font-size: inherit;
+}
+
+.prose hr {
+	border: none;
+	border-block-start: 1px solid var(--color-border);
+	margin-block: var(--space-xl);
+}
+
+.prose img {
+	border-radius: 6px;
+	margin-block: var(--space-lg);
+}
+
+.prose .heading-anchor {
+	text-decoration: none;
+}
+
+.prose .heading-anchor:hover {
+	text-decoration: underline;
+}

@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	hanging-punctuation: first last;
+}
+
+body {
+	min-block-size: 100vh;
+	min-block-size: 100dvh;
+	line-height: var(--leading-normal);
+	font-family: var(--font-sans);
+	font-size: var(--text-base);
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-inline-size: 100%;
+	block-size: auto;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	line-height: var(--leading-tight);
+	letter-spacing: var(--tracking-tight);
+	text-wrap: balance;
+}
+
+p {
+	text-wrap: pretty;
+	max-inline-size: var(--measure);
+}
+
+a {
+	color: var(--color-link);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.15em;
+	transition: color var(--duration-fast) var(--easing-default);
+}
+
+a:hover {
+	color: var(--color-link-hover);
+}
+
+a:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+code {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Skip link */
+.skip-link {
+	position: absolute;
+	inset-block-start: -100%;
+	inset-inline-start: var(--space-md);
+	padding: var(--space-xs) var(--space-sm);
+	background: var(--color-accent);
+	color: var(--color-bg);
+	font-weight: 600;
+	font-size: var(--text-sm);
+	text-decoration: none;
+	z-index: 100;
+	border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+	inset-block-start: 0;
+}
