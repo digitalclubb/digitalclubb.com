@@ -2,12 +2,17 @@
 	import '$lib/styles/tokens.css';
 	import '$lib/styles/reset.css';
 	import '$lib/styles/prose.css';
+	import { browser } from '$app/environment';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
 	import type { Snippet } from 'svelte';
 
 	let { children }: { children: Snippet } = $props();
+
+	if (browser) {
+		import('@vercel/analytics').then(({ inject }) => inject());
+	}
 </script>
 
 <a href="#main" class="skip-link">Skip to content</a>
