@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digitalclubb.com/api/sitemap
+Sitemap: https://digitalclubb.com/sitemap.xml

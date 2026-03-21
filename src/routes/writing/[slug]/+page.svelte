@@ -1,9 +1,12 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO.svelte';
+	import { siteConfig } from '$lib/config';
 	import { formatDate, isoDate } from '$lib/utils/date';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+
+	const canonicalUrl = $derived(`${siteConfig.url}/writing/${data.meta.slug}`);
 </script>
 
 <SEO
@@ -21,10 +24,20 @@
 			'@type': 'Article',
 			headline: data.meta.title,
 			datePublished: isoDate(data.meta.date),
+			description: data.meta.summary,
 			author: {
 				'@type': 'Person',
-				name: 'Gareth Clubb',
-				url: 'https://digitalclubb.com'
+				name: siteConfig.author.name,
+				url: siteConfig.url,
+				jobTitle: siteConfig.author.role,
+				worksFor: {
+					'@type': 'Organization',
+					name: siteConfig.author.company
+				}
+			},
+			mainEntityOfPage: {
+				'@type': 'WebPage',
+				'@id': canonicalUrl
 			}
 		})}
 	</script>
@@ -34,6 +47,7 @@
 	<header class="article-header">
 		<time class="article-date" datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
 		<h1 class="article-title">{data.meta.title}</h1>
+		<p class="article-byline">By {siteConfig.author.name}, {siteConfig.author.role} at {siteConfig.author.company}</p>
 		<p class="article-reading-time">{data.readingTime}</p>
 	</header>
 
@@ -70,8 +84,14 @@
 		margin-block-start: var(--space-xs);
 	}
 
+	.article-byline {
+		margin-block-start: var(--space-sm);
+		font-size: var(--text-sm);
+		color: var(--color-text-secondary);
+	}
+
 	.article-reading-time {
-		margin-block-start: var(--space-xs);
+		margin-block-start: var(--space-2xs);
 		font-size: var(--text-sm);
 		color: var(--color-text-tertiary);
 	}

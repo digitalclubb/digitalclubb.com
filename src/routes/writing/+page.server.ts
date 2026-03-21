@@ -1,5 +1,7 @@
+import { getWritingEntries } from '$lib/utils/content';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-	return {};
+	const writing = await getWritingEntries();
+	return { writing };
 };
