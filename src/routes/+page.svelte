@@ -38,7 +38,7 @@
 			<h3 class="approach-title">Architecture that holds up under change</h3>
 			<p class="approach-description">
 				I focus on frontend architecture that stays fast and maintainable as products
-				evolve. Rendering strategy, performance budgets and build systems are treated as
+				evolve. Performance budgets, observability and build systems are treated as
 				part of the product, not something to revisit later.
 			</p>
 		</li>
@@ -46,8 +46,8 @@
 			<h3 class="approach-title">Developer experience as a force multiplier</h3>
 			<p class="approach-description">
 				I invest in tooling, build pipelines and local development environments that
-				reduce the cost of change. When teams can make and verify changes quickly,
-				quality and velocity improve together.
+				make it easy to work on the system. When changes are quick to make and easy to
+				verify, teams move faster and with more confidence.
 			</p>
 		</li>
 		<li class="approach-item">

@@ -57,48 +57,51 @@
 
 		<p>
 			At <strong>Telegraph Media Group</strong>, I helped modernise the frontend platform
-			serving millions of readers. The focus was performance, rendering strategy and reducing
-			the cost of change across a large content platform.
+			serving millions of readers. The focus was performance, platform architecture and
+			improving how teams built and shipped across a large content system.
 		</p>
 
 		<p>
-			At <strong>Houseful</strong>, I led frontend architecture across multiple property
-			brands. This involved consolidating shared UI systems, improving build performance and
-			establishing accessibility standards adopted across the organisation.
+			At <strong>Houseful</strong>, I led frontend architecture and the replatforming of
+			Alto, an estate agency software product. This involved consolidating shared UI systems,
+			improving build performance and establishing accessibility standards adopted across
+			the organisation.
 		</p>
 
 		<p>
-			Earlier in my career, I worked at <strong>TUI</strong> on booking and search platforms
-			under high commercial pressure, where performance and reliability were critical. At
-			<strong>Jagex</strong>, I worked on web tooling and player-facing platforms for large
-			global communities.
+			Earlier in my career, I worked at <strong>TUI</strong> on specialist travel brands
+			such as Crystal Ski, building booking and search experiences under real commercial
+			pressure where performance and reliability were critical.
+		</p>
+
+		<p>
+			At <strong>Jagex</strong>, I led a team building the web platform that acts as the
+			entry point into the game, alongside internal tooling to support it.
 		</p>
 
 		<h2>How I think about engineering</h2>
 
 		<p>
-			The best frontend work is largely invisible. Fast interfaces, accessible systems and
-			reliable behaviour should be the default.
+			I focus on how frontend systems behave at scale. That means keeping codebases
+			understandable, making performance and behaviour observable and allowing teams to work
+			independently without creating fragmentation.
 		</p>
 
 		<p>
-			The challenge is how you build systems that stay that way over time. That means making
-			deliberate decisions early, keeping things simple and resisting unnecessary complexity.
-		</p>
-
-		<p>
-			I tend to favour approaches that work with the web platform rather than abstracting it
-			away. Semantic HTML, progressive enhancement and careful use of JavaScript are not
-			preferences. They are decisions that scale better over time.
+			Strong typing, build tooling and testing strategy are part of the system, not additions
+			to it. The aim is to make changes predictable, reviewable and safe as the organisation
+			grows.
 		</p>
 
 		<h2>What I focus on</h2>
 
 		<ul>
 			<li>Frontend architecture and platform strategy</li>
+			<li>Frontend infrastructure for performance and scale</li>
 			<li>UI quality, testing strategy and accessibility</li>
 			<li>Developer tooling, build systems and workflows</li>
-			<li>Performance, rendering and Core Web Vitals</li>
+			<li>Performance and Core Web Vitals</li>
+			<li>Observability, release processes and incident management</li>
 			<li>Team structure, leadership and engineering culture</li>
 		</ul>
 

@@ -19,24 +19,22 @@
 </script>
 
 <SEO
-	title={data.meta.title}
+	title={data.meta.company}
 	description={data.meta.summary}
 	path="/work/{data.meta.slug}"
 />
 
 <article class="case-study">
 	<header class="case-study-header">
+		<h1 class="case-study-name">{data.meta.company}</h1>
+		<p class="case-study-tagline">{data.meta.title}</p>
 		<div class="case-study-meta">
-			<span class="case-study-company">{data.meta.company}</span>
+			<span class="case-study-role">{data.meta.role}</span>
 			<span class="case-study-period">{data.meta.period}</span>
+			{#if data.meta.url}
+				<a class="case-study-url" href={data.meta.url} rel="noopener noreferrer">{data.meta.url.replace(/^https?:\/\//, '')}</a>
+			{/if}
 		</div>
-		<h1 class="case-study-title">{data.meta.title}</h1>
-		<p class="case-study-role">{data.meta.role}</p>
-		{#if data.meta.url}
-			<p class="case-study-url">
-				<a href={data.meta.url} rel="noopener noreferrer">{data.meta.url.replace(/^https?:\/\//, '')}</a>
-			</p>
-		{/if}
 	</header>
 
 	{#if Diagram}
@@ -64,49 +62,42 @@
 		margin-block-end: var(--space-xl);
 	}
 
+	.case-study-name {
+		font-size: var(--text-3xl);
+		font-weight: 700;
+		letter-spacing: var(--tracking-tight);
+		line-height: var(--leading-tight);
+	}
+
+	.case-study-tagline {
+		margin-block-start: var(--space-xs);
+		font-size: var(--text-lg);
+		color: var(--color-text-secondary);
+		line-height: var(--leading-snug);
+	}
+
 	.case-study-meta {
 		display: flex;
 		align-items: center;
 		gap: var(--space-sm);
-		margin-block-end: var(--space-sm);
-	}
-
-	.case-study-company {
-		font-size: var(--text-sm);
-		font-weight: 600;
-	}
-
-	.case-study-period {
+		margin-block-start: var(--space-md);
 		font-size: var(--text-sm);
 		color: var(--color-text-tertiary);
 	}
 
-	.case-study-title {
-		font-size: var(--text-3xl);
-		font-weight: 700;
-		letter-spacing: var(--tracking-tight);
-	}
-
 	.case-study-role {
-		margin-block-start: var(--space-xs);
-		font-size: var(--text-base);
-		color: var(--color-text-secondary);
+		font-weight: 500;
 	}
 
 	.case-study-url {
-		margin-block-start: var(--space-xs);
-		font-size: var(--text-sm);
-	}
-
-	.case-study-url a {
-		color: var(--color-text-secondary);
+		color: var(--color-text-tertiary);
 		text-decoration: underline;
 		text-underline-offset: 0.15em;
 		text-decoration-thickness: 1px;
 	}
 
-	.case-study-url a:hover {
-		color: var(--color-text);
+	.case-study-url:hover {
+		color: var(--color-text-secondary);
 	}
 
 	.case-study-footer {

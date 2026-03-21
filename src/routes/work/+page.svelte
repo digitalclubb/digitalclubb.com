@@ -4,89 +4,122 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+
+	const taglines: Record<string, string> = {
+		remindwise: 'Household renewal tracking',
+		implera: 'AI code changes via pull request',
+		comparia: 'Structured decision-making',
+		equalplay: 'Fair rotations for youth sport'
+	};
+
+	const images: Record<string, { src: string; alt: string }> = {
+		remindwise: {
+			src: '/products/remindwise.png',
+			alt: 'RemindWise dashboard showing household records including car insurance, boiler service and MOT with status indicators and renewal dates'
+		},
+		implera: {
+			src: '/products/implera.png',
+			alt: 'Implera execution view showing an AI agent planning and implementing a dark mode feature, with task progress and pull request output'
+		},
+		comparia: {
+			src: '/products/comparia.png',
+			alt: 'Comparia comparison table scoring three televisions across picture quality, gaming, price, brightness and value, with a recommended choice'
+		},
+		equalplay: {
+			src: '/products/equalplay.png',
+			alt: 'Equal Play game view showing playing and bench groups with player chips, next substitution suggestion and make sub action'
+		}
+	};
 </script>
 
-<SEO title="Products" description="Products built end-to-end, shaped by real constraints around usability, performance and maintainability." path="/work" />
+<SEO title="Products" description="Products built independently, shaped by real constraints around usability, performance and maintainability." path="/work" />
 
 <PageHeader
 	title="Products"
 	subtitle="Products I've built independently. Each one starts with a real problem and is shaped by constraints around usability, performance and keeping the system simple enough to maintain."
 />
 
-<ul class="work-list">
+<ul class="product-list">
 	{#each data.work as entry}
-		<li class="work-item">
-			<a href="/work/{entry.slug}" class="work-link">
-				<div class="work-meta">
-					<span class="work-company">{entry.company}</span>
-					<span class="work-period">{entry.period}</span>
-				</div>
-				<h2 class="work-title">{entry.title}</h2>
-				<p class="work-role">{entry.role}</p>
-				<p class="work-summary">{entry.summary}</p>
+		<li class="product-item">
+			<a href="/work/{entry.slug}" class="product-link">
+				<header class="product-header">
+					<h2 class="product-name">{entry.company}</h2>
+					<p class="product-tagline">{taglines[entry.slug] ?? entry.title}</p>
+				</header>
+
+				{#if images[entry.slug]}
+					<img
+						class="product-image"
+						src={images[entry.slug].src}
+						alt={images[entry.slug].alt}
+						width="1120"
+						height="600"
+						loading="lazy"
+						decoding="async"
+					/>
+				{/if}
+
+				<p class="product-summary">{entry.summary}</p>
 			</a>
 		</li>
 	{/each}
 </ul>
 
 <style>
-	.work-list {
+	.product-list {
 		display: grid;
-		gap: var(--space-xl);
+		gap: var(--space-2xl);
 	}
 
-	.work-item {
+	.product-item {
+		padding-block-end: var(--space-2xl);
 		border-block-end: 1px solid var(--color-border);
-		padding-block-end: var(--space-xl);
 	}
 
-	.work-item:last-child {
+	.product-item:last-child {
 		border-block-end: none;
+		padding-block-end: 0;
 	}
 
-	.work-link {
+	.product-link {
 		text-decoration: none;
 		display: block;
 	}
 
-	.work-meta {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-		margin-block-end: var(--space-xs);
+	.product-header {
+		margin-block-end: var(--space-md);
 	}
 
-	.work-company {
-		font-size: var(--text-sm);
-		font-weight: 600;
-		color: var(--color-text);
+	.product-name {
+		font-size: var(--text-2xl);
+		font-weight: 700;
+		letter-spacing: var(--tracking-tight);
+		line-height: var(--leading-tight);
 	}
 
-	.work-period {
-		font-size: var(--text-sm);
+	.product-link:hover .product-name {
+		color: var(--color-text-secondary);
+	}
+
+	.product-tagline {
+		margin-block-start: var(--space-2xs);
+		font-size: var(--text-base);
 		color: var(--color-text-tertiary);
 	}
 
-	.work-title {
-		font-size: var(--text-xl);
-		font-weight: 600;
-		letter-spacing: var(--tracking-tight);
+	.product-image {
+		display: block;
+		inline-size: 50%;
+		block-size: auto;
+		border-radius: 6px;
+		border: 1px solid var(--color-border);
+		margin-block-end: var(--space-md);
 	}
 
-	.work-link:hover .work-title {
-		color: var(--color-text-secondary);
-	}
-
-	.work-role {
-		margin-block-start: var(--space-2xs);
-		font-size: var(--text-sm);
-		color: var(--color-text-secondary);
-		font-weight: 500;
-	}
-
-	.work-summary {
-		margin-block-start: var(--space-sm);
+	.product-summary {
 		color: var(--color-text-secondary);
 		line-height: var(--leading-normal);
+		max-inline-size: var(--measure);
 	}
 </style>
