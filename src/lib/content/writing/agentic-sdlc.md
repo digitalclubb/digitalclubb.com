@@ -28,25 +28,23 @@ This is not pair programming with a chatbot. It is closer to delegating work to 
 
 I built [Implera](https://implera.ai) to explore this in practice. Not as a product pitch, but as a way of understanding what happens when you treat the agentic model as the default.
 
-The core decision was that output must always be a pull request. Not generated code in a chat window. Not a diff pasted into an editor. A real PR against the repository, with scoped changes and test results. If AI-generated code is going to enter a system, it should go through the same process as any other change.
+The initial version focused on generating pull requests for human review. An agent would read the repository, plan changes, implement them and submit a PR. But as AI tools improved and the volume of generated code increased, it became clear that gating everything on human review was not sustainable.
 
-The system uses a pipeline of specialised agents. A planner reads the repository and breaks the work into tasks. An engineer implements each task. A validation step runs tests before anything is submitted for review. Each phase runs in isolation.
+The current approach is different. Implera connects to your GitHub repository and uses AI to evaluate security, testing and architecture, providing real-time insights and actionable fixes as your code evolves. Rather than inserting itself into the delivery pipeline, it watches what is happening and surfaces what matters.
 
 This maps closely to how newer systems are evolving. Claude subagents allow different stages of work to be handled by separate processes with distinct responsibilities. Rather than a single model doing everything, you start to see a team-like structure emerge.
 
-What became clear is that the interesting problems are not in code generation. They are in the surrounding system. How work is scoped so that changes remain reviewable. How conventions are preserved. How failure is handled. How the human remains in a position to make decisions rather than approve output by default.
+What became clear is that the interesting problems are not in code generation. They are in maintaining visibility. Capturing key quality metrics. Offering context about the repository and codebase so that humans retain control and understanding without needing to manually review every line.
 
-## The review bottleneck
+## Moving beyond the review bottleneck
 
-If AI can produce code faster than humans can review it, then review becomes the constraint.
+If AI can produce code faster than humans can review it, then review becomes the constraint. The natural instinct is to limit the size of generated changes or break work into smaller pull requests. But as AI improves and the volume of generated code increases, this approach does not scale.
 
-One approach is to limit the size of generated changes. In [Implera](/work/implera), work is deliberately broken into smaller tasks to keep pull requests reviewable. There is a reasonable argument that anything over 250 lines becomes difficult to review properly.
+We cannot make human review the bottleneck. If AI systems can generate, validate and iterate faster than a team can review, then insisting on human review for every change turns it into a constraint rather than a safeguard.
 
-But this introduces friction. A single idea may result in several pull requests. And as AI improves, larger changes will become more reliable, which will challenge this constraint.
+The alternative is not to remove human oversight but to change its shape. Instead of reviewing every line, humans need tools that surface what matters. Quality metrics, security signals, architectural drift, test coverage gaps. This is the approach [Implera](https://implera.ai) takes. Rather than asking humans to review AI-generated pull requests, it gives them continuous visibility into what AI is producing and where attention is needed.
 
-The right model likely depends on context. A small bug fix may require minimal review. A feature touching multiple systems may require the same depth of review as before.
-
-The harder question is whether human review should remain the gating step for every change. If AI systems can generate, validate and iterate faster than a team can review, then insisting on human review everywhere risks turning it into a bottleneck rather than a safeguard.
+This lets teams lean into the speed that AI offers while retaining the control that matters. The human role shifts from gatekeeping individual changes to monitoring the health of the system as a whole.
 
 ## Where humans stay involved
 
@@ -58,7 +56,7 @@ There is also a question of how product leadership interacts with this model. If
 
 Planning and design remain human-led. Architectural decisions and tradeoffs require context that spans the codebase, the team and the business.
 
-Review and validation remain critical. Generated code still needs to be assessed for correctness, security and alignment with the system.
+Review and validation remain critical, but the mechanism is shifting. Rather than manually reviewing every change, engineers need platforms that provide visibility into what AI is producing, flagging risks and surfacing areas that need human attention.
 
 Testing strategy also remains important. AI can generate tests, but deciding what to test and where confidence should come from is still a human concern.
 
@@ -98,9 +96,9 @@ If engineers spend less time writing code, they may lose familiarity with the sy
 
 It is not hard to imagine a workflow where engineers rarely open an IDE, instead interacting with higher-level systems. If that happens, maintaining understanding becomes more important.
 
-This requires deliberate effort. Periodic deep reviews. Asking questions about how systems behave. Keeping documentation current.
+This requires deliberate effort. Periodic deep reviews. Asking questions about how systems behave. Keeping documentation current. Tools like [Implera](https://implera.ai) can help here by providing ongoing context about the repository, surfacing changes in architecture and quality so that engineers stay informed even when they are not writing the code themselves.
 
-The goal is not to resist automation, but to ensure that engineers remain capable of making informed decisions.
+The goal is not to resist automation but to ensure that engineers remain capable of making informed decisions.
 
 ## What remains unclear
 
@@ -120,6 +118,6 @@ The tools are improving quickly. The workflows are still emerging. The organisat
 
 Engineering judgement does not become less important. It becomes differently applied. Less time writing code. More time defining intent, evaluating output and maintaining understanding.
 
-The teams that navigate this well will be those that integrate AI carefully, using it to accelerate delivery without losing control of quality, security or system understanding.
+The teams that navigate this well will be those that build the tools and platforms to lean into what AI offers. Not by slowing it down with manual review at every step, but by retaining visibility, control and understanding as the pace of delivery increases.
 
 That work is still ahead of us.
