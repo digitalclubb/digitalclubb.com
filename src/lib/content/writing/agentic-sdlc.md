@@ -1,123 +1,92 @@
 ---
-title: "Rethinking the agentic SDLC: how AI is changing how we build software"
+title: "Humans can't be the bottleneck: rethinking review in the agentic SDLC"
 date: "2026-03-21"
-summary: "A practical look at the agentic SDLC, how AI is changing software development workflows and what this means for engineering teams, review and system design."
+summary: "AI is producing code faster than humans can review it. The answer is not to slow it down. It is to change what review means, invest in pipelines and tooling that maintain quality at machine speed and keep engineers close enough to their systems to make informed decisions."
 published: true
 tags: ["engineering", "AI", "architecture"]
 ---
 
-AI is starting to change how software gets built. Not in a sudden shift, but through a series of small changes that are beginning to compound.
+The unit of output is changing.
 
-Tools have moved beyond autocomplete. They can read a codebase, plan a change, implement it across multiple files, run tests and open a pull request. This is no longer theoretical. Teams at Stripe, Spotify and others are already working in this way. Stripe's "Minions" and Spotify's "Honk" are examples of AI systems embedded into engineering workflows, triggered through Slack or internal tooling, producing real changes against real repositories.
+Early AI tools produced snippets. A function here, a completion there. The developer still did the structural work, deciding what to build and how it connected to the rest of the system.
 
-We are also seeing this pattern emerge in tools like Claude, where work can be decomposed into specialised subagents. Planning, implementation and validation are handled by separate processes rather than a single interaction. The shape of the workflow starts to look less like a tool and more like a system.
+That model is already outdated. An engineer describes a change. An agent reads the repository, understands the structure, breaks the work into tasks, implements each one, runs validation and delivers a pull request. This is not theoretical. Stripe's "Minions" and Spotify's "Honk" are AI systems embedded into engineering workflows, producing real changes against real repositories. Claude can decompose work into specialised subagents for planning, implementation and validation.
 
-The question is not whether this affects how engineering teams work. It already does. The more useful question is what this means for how we organise work, maintain quality and decide where human judgement still matters.
+The output is no longer a code suggestion. It is a finished unit of work. And it arrives faster than any human can review it.
 
-## What is actually changing
+That is the problem worth talking about.
 
-The most significant shift is not that AI writes code. It is that the unit of output is changing.
+---
 
-Early tools produced snippets. A function here, a completion there. The developer still did the structural work, deciding what to build and how it connected to the rest of the system.
+## Human review does not scale
 
-The newer model is different. An engineer describes a change. An agent reads the repository, understands the structure and conventions, breaks the work into tasks, implements each one, runs validation and delivers the result as a pull request. The engineer's role shifts from writing code to defining intent and reviewing output.
+The instinct when AI produces more code is to review more carefully. Break changes into smaller pull requests. Limit the scope of generated work. Gate everything on human approval.
 
-This is not pair programming with a chatbot. It is closer to delegating work to a junior engineer who happens to operate at machine speed, follow conventions consistently and always run tests before raising a PR.
+This does not scale. If AI systems can generate, validate and iterate faster than a team can review, then insisting on human review for every change turns review from a safeguard into a constraint. The bottleneck is no longer implementation. It is us.
 
-## What an agentic SDLC might look like
+The uncomfortable implication: we cannot keep doing code review the way we have always done it and also benefit from what AI offers. Something has to give.
 
-I built [Implera](https://implera.ai) to explore this in practice. Not as a product pitch, but as a way of understanding what happens when you treat the agentic model as the default.
+The answer is not to remove human oversight. It is to change its shape.
 
-The initial version focused on generating pull requests for human review. An agent would read the repository, plan changes, implement them and submit a PR. But as AI tools improved and the volume of generated code increased, it became clear that gating everything on human review was not sustainable.
+---
 
-The current approach is different. Implera connects to your GitHub repository and uses AI to evaluate security, testing and architecture, providing real-time insights and actionable fixes as your code evolves. Rather than inserting itself into the delivery pipeline, it watches what is happening and surfaces what matters.
+## Pipelines and testing have to carry the weight
 
-This maps closely to how newer systems are evolving. Claude subagents allow different stages of work to be handled by separate processes with distinct responsibilities. Rather than a single model doing everything, you start to see a team-like structure emerge.
+If humans cannot review every line, something else must catch the problems. That means our pipelines and testing infrastructure become load-bearing in a way they have never been before.
 
-What became clear is that the interesting problems are not in code generation. They are in maintaining visibility. Capturing key quality metrics. Offering context about the repository and codebase so that humans retain control and understanding without needing to manually review every line.
+This is where most teams are underinvested. A CI pipeline that runs a linter and a handful of unit tests was adequate when humans wrote and reviewed every change. It is not adequate when AI is producing pull requests at machine speed.
 
-## Moving beyond the review bottleneck
+What has to get stronger:
 
-If AI can produce code faster than humans can review it, then review becomes the constraint. The natural instinct is to limit the size of generated changes or break work into smaller pull requests. But as AI improves and the volume of generated code increases, this approach does not scale.
+**Testing depth and coverage.** AI can generate tests, but deciding what to test and where confidence should come from is still a human concern. Test suites need to be comprehensive enough that a passing pipeline genuinely means the change is safe. If your tests do not catch regressions, no amount of human review will compensate at this velocity.
 
-We cannot make human review the bottleneck. If AI systems can generate, validate and iterate faster than a team can review, then insisting on human review for every change turns it into a constraint rather than a safeguard.
+**Security analysis as a pipeline stage.** AI-generated code introduces new attack surfaces. If an agent can write to a repository based on natural language input, adversarial prompts and subtle vulnerabilities become real concerns. Security scanning cannot be an afterthought bolted onto quarterly audits. It needs to run on every change.
 
-The alternative is not to remove human oversight but to change its shape. Instead of reviewing every line, humans need tools that surface what matters. Quality metrics, security signals, architectural drift, test coverage gaps. This is the approach [Implera](https://implera.ai) takes. Rather than asking humans to review AI-generated pull requests, it gives them continuous visibility into what AI is producing and where attention is needed.
+**Architectural validation.** Code that passes tests and security scans can still be structurally wrong. It can introduce coupling, violate boundaries, duplicate logic in ways that compound over time. Tooling that detects architectural drift is not a luxury. It is a requirement.
 
-This lets teams lean into the speed that AI offers while retaining the control that matters. The human role shifts from gatekeeping individual changes to monitoring the health of the system as a whole.
+**Quality metrics that surface what matters.** Instead of reviewing every diff, engineers need dashboards and signals that tell them where attention is needed. Coverage gaps, complexity trends, dependency changes, pattern violations. The human role shifts from gatekeeping individual changes to monitoring the health of the system.
 
-## Where humans stay involved
+This is not optional. If teams adopt agentic workflows without strengthening their pipelines, they will ship faster and break more. The speed that AI offers is only as valuable as the infrastructure that validates what it produces.
 
-Not everything shifts at the same rate.
+---
 
-Product definition remains a human responsibility. Deciding what to build, for whom and why still requires judgement.
+## Engineers must stay close to the system
 
-There is also a question of how product leadership interacts with this model. If agents can plan and break down work, product managers may increasingly work directly with systems to explore options and define scope before anything reaches engineering.
+There is a subtler risk that does not get enough attention.
 
-Planning and design remain human-led. Architectural decisions and tradeoffs require context that spans the codebase, the team and the business.
+If engineers spend less time writing code, they lose familiarity with the systems they are responsible for. Understanding how a system works comes from direct interaction with it. Reading it, changing it, debugging it. Take that away and knowledge erodes.
 
-Review and validation remain critical, but the mechanism is shifting. Rather than manually reviewing every change, engineers need platforms that provide visibility into what AI is producing, flagging risks and surfacing areas that need human attention.
+It is easy to imagine a workflow where an engineer spends their day writing prompts, reviewing summaries and approving pull requests without ever opening the actual code. That works until something breaks in a way that requires genuine understanding. A production incident. A performance cliff. An architectural decision that depends on knowing why the system was built the way it was.
 
-Testing strategy also remains important. AI can generate tests, but deciding what to test and where confidence should come from is still a human concern.
+This requires deliberate effort:
 
-In larger organisations, involvement becomes more nuanced. Not every change needs the same level of oversight. The challenge is applying the right level of review to the right type of work.
+- Periodic deep reviews where engineers read through AI-generated changes in detail, not to approve them, but to maintain understanding
+- Architecture sessions that go beyond the current sprint and force engagement with how the system is evolving
+- Documentation that stays current, because in this model it is not just a reference for other humans. It is context for AI systems and a record of decisions that may otherwise be lost
+- Tooling that provides continuous visibility into how the codebase is changing. Not just diffs, but trends. What is growing, what is drifting, where complexity is accumulating
 
-## Engineering as orchestration
+I built [Implera](https://implera.ai) partly to explore this problem. Not the code generation side, but the visibility side. How do you keep engineers informed about what AI is producing without requiring them to review every line? That question is still open, but it is the one I think matters most.
 
-As implementation shifts toward AI, the role of the engineer changes.
+---
 
-This sounds abstract, but in practice it changes where effort goes.
+## What orchestration actually looks like
 
-Prompt design becomes an engineering skill. Not as a way of coaxing better output, but as a way of specifying constraints. Security requirements, performance expectations, accessibility standards and architectural patterns all need to be defined clearly.
+The role of the engineer is shifting from writing code to shaping the system that produces it.
 
-The prompt is not just a request. It is a specification. Poorly defined inputs do not just produce low-quality code, they introduce risk.
+In practice, this means spending more time on things that used to be secondary. Defining constraints clearly enough that an AI can implement them. Writing specifications that encode security requirements, performance expectations and architectural patterns. Designing test strategies that validate intent, not just correctness.
 
-It also requires thinking about the system around the AI. What guardrails exist. How incorrect but plausible changes are detected. How consistency is maintained.
+Prompt design is an engineering skill now. Not in the superficial "write better prompts" sense, but in the sense that a poorly defined specification does not just produce low-quality code. It introduces risk. The prompt is the spec. If it is ambiguous, the output will be too.
 
-The role shifts from writing code to shaping the system that produces it. That includes defining constraints, reviewing output and deciding where automation should stop.
+It also means thinking about the system around the AI. What guardrails exist. How incorrect but plausible changes are detected. How consistency is maintained across dozens of generated changes a day. This is systems engineering applied to the development process itself.
 
-## Risks that need attention
+---
 
-There are real risks in this shift.
+## The shift is real and it is early
 
-AI systems introduce new attack surfaces. If an agent can write to a repository based on natural language input, then adversarial prompts become a concern.
+The tools are improving faster than our practices are adapting. Most teams are still treating AI as a faster way to write code. The ones that will benefit most are treating it as a reason to rethink their entire delivery pipeline.
 
-AI reviewing its own output is effective at catching certain classes of issues, but it can miss structural or contextual problems that require a different perspective.
+That means stronger testing. Better observability. Clearer specifications. And a deliberate effort to keep engineers close enough to their systems to make informed decisions when it matters.
 
-Speed can also hide problems. If changes are produced faster than they are evaluated, low-quality code can accumulate.
+Human review does not go away. But it cannot remain the primary quality gate. The teams that figure out what replaces it will move faster without losing control. The teams that do not will either slow down to maintain quality or speed up and lose it.
 
-These are not reasons to avoid AI. They are reasons to be deliberate about how it is introduced.
-
-## Staying close to the system
-
-There is a more subtle concern.
-
-If engineers spend less time writing code, they may lose familiarity with the systems they are responsible for. Understanding how a system works comes from direct interaction with it.
-
-It is not hard to imagine a workflow where engineers rarely open an IDE, instead interacting with higher-level systems. If that happens, maintaining understanding becomes more important.
-
-This requires deliberate effort. Periodic deep reviews. Asking questions about how systems behave. Keeping documentation current. Tools like [Implera](https://implera.ai) can help here by providing ongoing context about the repository, surfacing changes in architecture and quality so that engineers stay informed even when they are not writing the code themselves.
-
-The goal is not to resist automation but to ensure that engineers remain capable of making informed decisions.
-
-## What remains unclear
-
-There is still a lot we do not know.
-
-It is not clear how team structures will change. Whether fewer engineers are needed, or different skills become more important.
-
-It is not clear where the limits of AI-generated code are, particularly in complex or poorly structured systems.
-
-It is not clear how to measure productivity in this model. Traditional metrics become less meaningful.
-
-## Closing
-
-The shift toward an AI-driven software development lifecycle is real, but it is early.
-
-The tools are improving quickly. The workflows are still emerging. The organisational implications are not fully understood.
-
-Engineering judgement does not become less important. It becomes differently applied. Less time writing code. More time defining intent, evaluating output and maintaining understanding.
-
-The teams that navigate this well will be those that build the tools and platforms to lean into what AI offers. Not by slowing it down with manual review at every step, but by retaining visibility, control and understanding as the pace of delivery increases.
-
-That work is still ahead of us.
+That is the choice in front of us.
