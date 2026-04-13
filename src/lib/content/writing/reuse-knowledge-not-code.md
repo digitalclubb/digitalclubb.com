@@ -18,15 +18,15 @@ That is not an edge case. At enterprise scale, it is the norm. And it starts wit
 
 Don't Repeat Yourself made sense when writing code was expensive. If you could not afford to write something twice, you made sure you only wrote it once.
 
-But shared abstractions follow a predictable decay. They start simple. They accumulate edge cases from different teams. They become harder to reason about. Every modification carries wider impact. What began as reuse becomes coupling, and coupling at enterprise scale is a delivery risk.
+But shared abstractions follow a predictable decay. They start simple. They accumulate edge cases from different teams. They become harder to reason about. Every modification carries wider impact. What began as reuse becomes coupling and coupling at enterprise scale is a delivery risk.
 
 Sandi Metz identified this a decade ago in [The Wrong Abstraction](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction):
 
 > "Duplication is far cheaper than the wrong abstraction."
 
-She described the pattern precisely. A developer extracts duplication into a shared abstraction. Requirements shift. The next developer adds a parameter. Then a conditional. Each change is rational in isolation. But the abstraction accumulates scar tissue until nobody dares touch it because the blast radius is unknown.
+Sandi described the pattern precisely. A developer extracts duplication into a shared abstraction. Requirements shift. The next developer adds a parameter. Then a conditional. Each change is rational in isolation. But the abstraction accumulates scar tissue until nobody dares touch it because the blast radius is unknown.
 
-Metz argued for a healthier relationship with abstraction. Recognise when it is wrong, unwind it, try again.
+Sandi argued for a healthier relationship with abstraction. Recognise when it is wrong, unwind it, try again.
 
 I am arguing something different. The economics have shifted enough that our default should change.
 
@@ -38,7 +38,7 @@ AI has altered the cost profile of software development. Generating well-structu
 
 To be precise: AI has reduced the cost of producing code. It has not equally reduced the cost of producing *correct* code. Generated implementations still need testing, review and integration. The economics have shifted, but they have not collapsed.
 
-What has changed decisively is the ratio. Writing code used to be the expensive part. Now it is one of the cheaper parts. The expensive parts — coordination, integration, understanding, maintenance — have not moved.
+What has changed decisively is the ratio. Writing code used to be the expensive part. Now it is one of the cheaper parts. The expensive parts, coordination, integration, understanding, maintenance, have not moved.
 
 We are still optimising for a cost structure that no longer applies.
 
@@ -80,7 +80,7 @@ These are not just technical concerns. Getting authentication wrong in a local i
 
 **Remediation changes shape.** The hardest question: if fifty teams each have their own implementation and a critical vulnerability is found, what happens?
 
-The shared library answer sounds clean: bump the version. In practice it means: publish the fix, communicate the urgency, wait for fifty teams to update, handle the ones pinned to older versions, deal with builds that break from unrelated changes in the same release, and manage the three teams two major versions behind.
+The shared library answer sounds clean: bump the version. In practice it means: publish the fix, communicate the urgency, wait for fifty teams to update, handle the ones pinned to older versions, deal with builds that break from unrelated changes in the same release and manage the three teams two major versions behind.
 
 The knowledge-first alternative: strong observability identifies every instance of the affected pattern. AI generates targeted patches accounting for local context. Patches are raised as pull requests, reviewed by owning teams, merged independently. No shared dependency chain. No cascading version conflicts.
 
