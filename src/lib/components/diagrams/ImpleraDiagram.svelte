@@ -1,50 +1,74 @@
-<!-- System diagram: Implera agent pipeline -->
-<figure class="diagram" role="img" aria-label="Implera pipeline diagram showing the flow from developer idea through planner, engineer and validation agents, ending with a GitHub pull request for human review.">
-	<svg viewBox="0 0 720 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="diagram-svg">
-		<!-- Developer input -->
-		<rect x="16" y="72" width="100" height="56" rx="4" stroke="var(--color-text)" stroke-width="1.5" />
-		<text x="66" y="96" text-anchor="middle" fill="var(--color-text)" font-size="12" font-weight="600" font-family="var(--font-sans)">Developer</text>
-		<text x="66" y="114" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Describes change</text>
+<!-- System diagram: Implera two-layer quality analysis pipeline -->
+<figure class="diagram" role="img" aria-label="Implera quality analysis pipeline: a GitHub repository connects via read-only access, a deterministic layer runs 21 static checks, then 7 AI domain reviewers score security, testing, architecture, performance, dependencies, accessibility and documentation, producing a single quality score from 0 to 100.">
+	<svg viewBox="0 0 720 228" fill="none" xmlns="http://www.w3.org/2000/svg" class="diagram-svg">
+		<!-- Two-layer analysis label -->
+		<rect x="150" y="14" width="320" height="26" rx="3" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 3" />
+		<text x="310" y="31" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Two-layer analysis</text>
+
+		<!-- GitHub Repo -->
+		<rect x="16" y="56" width="108" height="52" rx="4" stroke="var(--color-text)" stroke-width="1.5" />
+		<text x="70" y="78" text-anchor="middle" fill="var(--color-text)" font-size="12" font-weight="600" font-family="var(--font-sans)">GitHub Repo</text>
+		<text x="70" y="96" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">read-only</text>
 
 		<!-- Arrow -->
-		<line x1="116" y1="100" x2="156" y2="100" stroke="var(--color-border-strong)" stroke-width="1" marker-end="url(#impl-arrow)" />
+		<line x1="124" y1="82" x2="160" y2="82" stroke="var(--color-border-strong)" stroke-width="1" marker-end="url(#impl-arrow)" />
 
-		<!-- Planner -->
-		<rect x="156" y="72" width="100" height="56" rx="4" stroke="var(--color-border-strong)" stroke-width="1.5" fill="var(--color-bg-subtle)" />
-		<text x="206" y="96" text-anchor="middle" fill="var(--color-text-secondary)" font-size="12" font-family="var(--font-sans)">Planner</text>
-		<text x="206" y="114" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Scopes tasks</text>
-
-		<!-- Arrow -->
-		<line x1="256" y1="100" x2="296" y2="100" stroke="var(--color-border-strong)" stroke-width="1" marker-end="url(#impl-arrow)" />
-
-		<!-- Engineer -->
-		<rect x="296" y="72" width="100" height="56" rx="4" stroke="var(--color-border-strong)" stroke-width="1.5" fill="var(--color-bg-subtle)" />
-		<text x="346" y="96" text-anchor="middle" fill="var(--color-text-secondary)" font-size="12" font-family="var(--font-sans)">Engineer</text>
-		<text x="346" y="114" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Implements</text>
+		<!-- Deterministic Layer -->
+		<rect x="160" y="56" width="140" height="52" rx="4" stroke="var(--color-border-strong)" stroke-width="1.5" fill="var(--color-bg-subtle)" />
+		<text x="230" y="78" text-anchor="middle" fill="var(--color-text-secondary)" font-size="12" font-family="var(--font-sans)">Deterministic Layer</text>
+		<text x="230" y="96" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">21 analysis steps</text>
 
 		<!-- Arrow -->
-		<line x1="396" y1="100" x2="436" y2="100" stroke="var(--color-border-strong)" stroke-width="1" marker-end="url(#impl-arrow)" />
+		<line x1="300" y1="82" x2="336" y2="82" stroke="var(--color-border-strong)" stroke-width="1" marker-end="url(#impl-arrow)" />
 
-		<!-- Validation -->
-		<rect x="436" y="72" width="100" height="56" rx="4" stroke="var(--color-border-strong)" stroke-width="1.5" fill="var(--color-bg-subtle)" />
-		<text x="486" y="96" text-anchor="middle" fill="var(--color-text-secondary)" font-size="12" font-family="var(--font-sans)">Validation</text>
-		<text x="486" y="114" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Runs tests</text>
+		<!-- AI Reviewers -->
+		<rect x="336" y="56" width="130" height="52" rx="4" stroke="var(--color-border-strong)" stroke-width="1.5" fill="var(--color-bg-subtle)" />
+		<text x="401" y="78" text-anchor="middle" fill="var(--color-text-secondary)" font-size="12" font-family="var(--font-sans)">AI Reviewers</text>
+		<text x="401" y="96" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">7 domain specialists</text>
 
 		<!-- Arrow -->
-		<line x1="536" y1="100" x2="576" y2="100" stroke="var(--color-border-strong)" stroke-width="1" marker-end="url(#impl-arrow)" />
+		<line x1="466" y1="82" x2="502" y2="82" stroke="var(--color-border-strong)" stroke-width="1" marker-end="url(#impl-arrow)" />
 
-		<!-- PR output -->
-		<rect x="576" y="72" width="128" height="56" rx="4" stroke="var(--color-text)" stroke-width="1.5" />
-		<text x="640" y="96" text-anchor="middle" fill="var(--color-text)" font-size="12" font-weight="600" font-family="var(--font-sans)">Pull request</text>
-		<text x="640" y="114" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Human review</text>
+		<!-- Quality Score -->
+		<rect x="502" y="56" width="140" height="52" rx="4" stroke="var(--color-text)" stroke-width="1.5" />
+		<text x="572" y="78" text-anchor="middle" fill="var(--color-text)" font-size="12" font-weight="600" font-family="var(--font-sans)">Quality Score</text>
+		<text x="572" y="96" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">0–100, tracks over time</text>
 
-		<!-- Ephemeral env label -->
-		<rect x="156" y="24" width="380" height="28" rx="3" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 3" />
-		<text x="346" y="42" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Isolated ephemeral environment</text>
+		<!-- Connector to domains -->
+		<text x="360" y="134" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Seven quality domains</text>
 
-		<!-- Feedback arrow -->
-		<path d="M640 128 L640 172 L66 172 L66 128" stroke="var(--color-border-strong)" stroke-width="1" fill="none" stroke-dasharray="4 3" marker-end="url(#impl-arrow)" />
-		<text x="353" y="168" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">Review feedback</text>
+		<!-- Domain boxes -->
+		<rect x="31" y="148" width="88" height="34" rx="3" stroke="var(--color-border)" stroke-width="1" fill="var(--color-bg-subtle)" />
+		<text x="75" y="163" text-anchor="middle" fill="var(--color-text-secondary)" font-size="10" font-weight="500" font-family="var(--font-sans)">Security</text>
+		<text x="75" y="176" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="9" font-family="var(--font-sans)">20%</text>
+
+		<rect x="126" y="148" width="88" height="34" rx="3" stroke="var(--color-border)" stroke-width="1" fill="var(--color-bg-subtle)" />
+		<text x="170" y="163" text-anchor="middle" fill="var(--color-text-secondary)" font-size="10" font-weight="500" font-family="var(--font-sans)">Testing</text>
+		<text x="170" y="176" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="9" font-family="var(--font-sans)">20%</text>
+
+		<rect x="221" y="148" width="88" height="34" rx="3" stroke="var(--color-border)" stroke-width="1" fill="var(--color-bg-subtle)" />
+		<text x="265" y="163" text-anchor="middle" fill="var(--color-text-secondary)" font-size="10" font-weight="500" font-family="var(--font-sans)">Architecture</text>
+		<text x="265" y="176" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="9" font-family="var(--font-sans)">20%</text>
+
+		<rect x="316" y="148" width="88" height="34" rx="3" stroke="var(--color-border)" stroke-width="1" fill="var(--color-bg-subtle)" />
+		<text x="360" y="163" text-anchor="middle" fill="var(--color-text-secondary)" font-size="10" font-weight="500" font-family="var(--font-sans)">Performance</text>
+		<text x="360" y="176" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="9" font-family="var(--font-sans)">10%</text>
+
+		<rect x="411" y="148" width="88" height="34" rx="3" stroke="var(--color-border)" stroke-width="1" fill="var(--color-bg-subtle)" />
+		<text x="455" y="163" text-anchor="middle" fill="var(--color-text-secondary)" font-size="10" font-weight="500" font-family="var(--font-sans)">Dependencies</text>
+		<text x="455" y="176" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="9" font-family="var(--font-sans)">10%</text>
+
+		<rect x="506" y="148" width="88" height="34" rx="3" stroke="var(--color-border)" stroke-width="1" fill="var(--color-bg-subtle)" />
+		<text x="550" y="163" text-anchor="middle" fill="var(--color-text-secondary)" font-size="10" font-weight="500" font-family="var(--font-sans)">Accessibility</text>
+		<text x="550" y="176" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="9" font-family="var(--font-sans)">10%</text>
+
+		<rect x="601" y="148" width="88" height="34" rx="3" stroke="var(--color-border)" stroke-width="1" fill="var(--color-bg-subtle)" />
+		<text x="645" y="163" text-anchor="middle" fill="var(--color-text-secondary)" font-size="10" font-weight="500" font-family="var(--font-sans)">Docs</text>
+		<text x="645" y="176" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="9" font-family="var(--font-sans)">10%</text>
+
+		<!-- PR quality gates annotation -->
+		<path d="M572 108 L572 210 L360 210" stroke="var(--color-border-strong)" stroke-width="1" fill="none" stroke-dasharray="4 3" marker-end="url(#impl-arrow)" />
+		<text x="480" y="222" text-anchor="middle" fill="var(--color-text-tertiary)" font-size="10" font-family="var(--font-sans)">PR quality gates</text>
 
 		<defs>
 			<marker id="impl-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">

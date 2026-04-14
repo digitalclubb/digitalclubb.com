@@ -7,7 +7,7 @@
 
 	const taglines: Record<string, string> = {
 		remindwise: 'Household renewal tracking',
-		implera: 'AI code changes via pull request',
+		implera: 'Codebase quality intelligence',
 		comparia: 'Structured decision-making',
 		equalplay: 'Fair rotations for youth sport'
 	};
@@ -19,7 +19,7 @@
 		},
 		implera: {
 			src: '/products/implera.png',
-			alt: 'Implera execution view showing an AI agent planning and implementing a dark mode feature, with task progress and pull request output'
+			alt: 'Implera quality analysis pipeline showing a GitHub repository flowing through deterministic and AI review layers across seven domains to produce a quality score'
 		},
 		comparia: {
 			src: '/products/comparia.png',
