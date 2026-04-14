@@ -3,7 +3,7 @@ title: "Fair playing time for youth sports, without the mental arithmetic"
 company: "Equal Play"
 role: "Built independently"
 period: "2026"
-summary: "A mobile-first web app that generates fair team rotations for youth sports coaches. Handles substitutions, late arrivals and injuries, and tracks cumulative fairness across a session."
+summary: "A mobile-first web app that generates fair team rotations for youth sports coaches. Handles substitutions, late arrivals and injuries and tracks cumulative fairness across a session."
 order: 4
 published: true
 url: "https://equalplay.io"
@@ -13,7 +13,7 @@ url: "https://equalplay.io"
 
 In youth sport, equal playing time matters. Leagues often require it, parents expect it and players notice when they spend longer on the bench than others.
 
-Managing that during a live game is difficult. A typical squad might have 10 to 14 players competing for 7 or 9 positions. The coach is rotating players, handling substitutions, tracking time, dealing with late arrivals and injuries, and still trying to coach the game.
+Managing that during a live game is difficult. A typical squad might have 10 to 14 players competing for 7 or 9 positions. The coach is rotating players, handling substitutions, tracking time, dealing with late arrivals and injuries and still trying to coach the game.
 
 Most of this is done mentally or on paper. It works until it doesn't. When someone asks why a player had less time on the pitch, there is rarely a clear answer.
 
@@ -50,13 +50,21 @@ The flow follows the way a coach already operates:
 
 Each step is simple and designed for use on a touchline with limited attention.
 
+### Rotation algorithm
+
+The core is a greedy algorithm driven by a fairness-debt model. Each player tracks play time units, games available and last game played. Fairness debt is calculated as the difference between expected and actual play time, where expected time is derived from team size relative to pool size.
+
+For each game, eligible players are sorted by highest debt first, with ties broken by longest time since last played. The top N players are selected for the field. Players substituted off the previous game receive a small debt boost so they are prioritised to start next.
+
+The plan is rebuilt from scratch on every change. There is no backtracking or constraint solver. It is a single forward pass through games, greedily selecting the most underplayed players each time. Past games are locked and only future games are rebalanced.
+
 ### Handling disruption
 
 This is where most manual approaches fail.
 
-If a player arrives late, they are added and the rotation adjusts. If a player is injured, the remaining players absorb the time.
+If a player arrives late, they are added and the rotation recalculates from that point forward. If a player is injured, the remaining players absorb the time. A player leaving early triggers the same rebalancing.
 
-Recalculation happens immediately and the system stays consistent.
+Because the algorithm rebuilds future games on every event, disruption is handled without special cases.
 
 ### Fairness tracking
 
@@ -66,9 +74,17 @@ A summary view shows playing time across the session. The coach can see whether 
 
 Game state can be shared across devices. An assistant coach or parent can follow the rotation without needing to ask.
 
+Sharing uses Supabase Realtime, built on WebSockets under the hood. The owner creates a session row with a unique ID and pushes state updates via debounced writes. Viewers subscribe to Postgres changes on that session row and receive updates in near real time. A polling fallback at 8-second intervals catches anything the realtime channel misses.
+
+The share URL is copied to the clipboard. If Supabase credentials are not configured, the share button is hidden entirely.
+
 ### Progressive Web App
 
-The app runs in the browser with no installation. It works offline, so it remains usable during a game even if connectivity drops.
+The app runs in the browser with no installation. A service worker uses a cache-first strategy for assets and network-first for navigation with a cache fallback. The shell is pre-cached and hashed JS and CSS from Vite are cached at runtime.
+
+Data is stored in localStorage under a single key, with legacy migration from an earlier storage format. There is no IndexedDB usage. A web app manifest provides full PWA support including home screen installation.
+
+This means the app remains usable during a game even if connectivity drops.
 
 ### No accounts
 

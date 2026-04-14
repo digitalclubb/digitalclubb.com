@@ -42,15 +42,31 @@ Reminders are triggered ahead of renewal, with sensible defaults.
 
 Members are invited by email and share a single view. The dashboard surfaces what needs attention, who owns it and what is coming up next.
 
+Access control is primarily application-level. A server hook resolves the user's householdId from their membership on every request and attaches it to the request context. Every data query filters by householdId. Accessing another household's data returns a 404.
+
+RLS is enabled on all Supabase tables but with no policies defined. Prisma connects as a superuser which bypasses RLS, so the RLS layer acts as a defensive perimeter blocking any direct PostgREST or anonymous key access to application tables. For Supabase Storage, RLS policies are defined on the document bucket, checking that the folder path matches a household the user belongs to.
+
 ### AI capture
 
 A natural language input allows users to add records conversationally. "Car insurance renews 15 March" becomes a structured record with the correct category and date.
+
+The pipeline has four layers. Deterministic pre-extraction runs first, using regex to pull dates, amounts and provider names as ground truth hints. The LLM then performs structured extraction (GPT-4o-mini for text, GPT-4o for documents and images) with forced JSON output. Post-processing validation cross-checks LLM output against the deterministic layer, fixing date, category and lifecycle inconsistencies. Finally, a weighted confidence score from 0.0 to 1.0 is calculated per field.
+
+Routing depends on confidence. Scores above 0.80 auto-create the record. Between 0.50 and 0.79, the record is created but opened in edit mode. Below 0.50, the user sees a confirmation modal with per-field confidence badges and must review before anything is saved. All AI metadata including confidence scores and uncertain fields is stored on the record for audit.
 
 This reduces friction at the point of entry, which is where most tools fail.
 
 ### Technical decisions
 
-SvelteKit frontend, Supabase for authentication and storage and Vercel for deployment. OpenAI is used for natural language parsing. The marketing site and application run on separate subdomains.
+SvelteKit frontend, Supabase for authentication and storage and Vercel for deployment. The marketing site and application run on separate subdomains. The stack is consistent across all my side projects. SvelteKit gives strong end-user performance with minimal overhead and Supabase provides authentication, storage and Postgres without managing infrastructure. Speed of delivery matters when building outside work hours.
+
+### Reminder pipeline
+
+Reminders are delivered by email via Resend. Two Vercel cron jobs run at 8 AM UTC: a daily scan for records approaching their reminder window (default 7 days, configurable per record) and a weekly digest every Monday with a 7-day lookahead.
+
+Emails include RFC 8058 one-click unsubscribe headers. Users control preferences via per-member flags for daily reminders and weekly summaries.
+
+Idempotency is handled through a ReminderLog table with a composite key of householdId and sentDate, preventing duplicate sends. A separate ReminderDeliveryLog tracks per-member delivery status for debugging failed sends. Both cron endpoints are protected with bearer token authentication.
 
 ### Privacy position
 

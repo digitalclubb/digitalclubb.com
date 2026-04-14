@@ -45,11 +45,17 @@ Every score includes an explanation. The recommendation shows how it was derived
 
 This was a deliberate choice. Opaque recommendations are difficult to trust. Showing the reasoning allows users to challenge or adjust the result.
 
+### Scoring engine
+
+Score generation is split into two layers. GPT-4o-mini generates initial scores from 1 to 10 per option per criterion. These are stored in the database. A deterministic weighted-average engine then calculates final results: each criterion's weight as a proportion of total weight, multiplied by the raw score, summed across all criteria. Strengths and weaknesses are derived automatically from scores relative to the set average.
+
+The LLM step is non-deterministic. Two identical queries can produce different initial scores. But once scores are stored, the calculation is fully reproducible. The creative judgement comes from the model. The maths is transparent and auditable.
+
 ### Pre-built comparisons
 
-Alongside the custom flow, the product includes curated comparisons across common categories such as televisions, laptops and smartphones.
+Alongside the custom flow, the product includes around 44 hand-authored comparison pages covering common categories such as televisions, laptops and smartphones.
 
-These provide immediate value and demonstrate how the system works without requiring input.
+These are fully static Svelte pages with hardcoded product data, scores and narratives. They are not connected to the database or AI service. Maintenance is manual. They provide immediate value, demonstrate how the system works without requiring input and drive organic search traffic.
 
 ### Technical decisions
 
@@ -57,11 +63,15 @@ SvelteKit frontend, Supabase for authentication and data and OpenAI for analysis
 
 Authentication uses the PKCE flow with HTTP-only cookies.
 
+The AI relies entirely on GPT-4o-mini's training data. There is no web search, RAG pipeline or live product feed. When a user pastes a URL, the server fetches that page, extracts structured data from title, meta tags, JSON-LD and the first 6000 characters of text and passes it to the model for enrichment and scoring. This is user-initiated, not automated.
+
 ### Monetisation
 
 The product is free to use. Revenue comes from affiliate links to retailers.
 
-Affiliate relationships do not influence scores or rankings and this is stated clearly.
+The integration is rule-based. The system detects the decision category from the title and generates appropriate links. Product decisions link to Amazon Associates search URLs. Travel decisions link to Booking.com and Expedia. Property decisions link to Zoopla and Rightmove.
+
+Affiliate relationships do not influence scores or rankings and this is stated explicitly on every comparison.
 
 ## Tradeoffs
 
