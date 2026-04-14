@@ -1,7 +1,7 @@
 ---
 title: "Reuse knowledge, not code"
 date: "2026-04-13"
-summary: "DRY was shaped in a world where writing code was expensive. That world is ending. A look at why shared abstractions break at scale, what AI changes about the cost of duplication and why reusing knowledge matters more than reusing code."
+summary: "Shared code was never about DRY. It was about consistency. But shared implementations are not the only way to achieve it. A look at why shared abstractions break at scale, what AI changes about the cost of duplication and why reusing knowledge matters more than reusing code."
 published: true
 tags: ["engineering", "AI", "architecture", "opinion"]
 ---
@@ -14,11 +14,13 @@ That is not an edge case. At enterprise scale, it is the norm. And it starts wit
 
 ---
 
-## DRY was built for a different cost structure
+## Shared code was never really about DRY
 
-Don't Repeat Yourself made sense when writing code was expensive. If you could not afford to write something twice, you made sure you only wrote it once.
+Nobody builds a component library because they read a chapter on Don't Repeat Yourself. They build it for consistency. They want buttons that look the same, interactions that behave the same, patterns that hold across products and teams. DRY is the principle people cite, but consistency and reuse are the actual goals.
 
-But shared abstractions follow a predictable decay. They start simple. They accumulate edge cases from different teams. They become harder to reason about. Every modification carries wider impact. What began as reuse becomes coupling and coupling at enterprise scale is a delivery risk.
+That distinction matters because the argument is not with DRY. It is with the assumption that shared implementations are the best mechanism for achieving consistency at scale.
+
+Shared abstractions follow a predictable decay. They start simple. They accumulate edge cases from different teams. They become harder to reason about. Every modification carries wider impact. What began as a vehicle for consistency becomes coupling and coupling at enterprise scale is a delivery risk.
 
 Sandi Metz identified this a decade ago in [The Wrong Abstraction](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction):
 
@@ -28,7 +30,7 @@ Sandi described the pattern precisely. A developer extracts duplication into a s
 
 Sandi argued for a healthier relationship with abstraction. Recognise when it is wrong, unwind it, try again.
 
-I am arguing something different. The economics have shifted enough that our default should change.
+I am arguing something adjacent. The goal was always consistency. The question is whether shared implementations are still the best way to get it.
 
 ---
 
@@ -40,7 +42,7 @@ To be precise: AI has reduced the cost of producing code. It has not equally red
 
 What has changed decisively is the ratio. Writing code used to be the expensive part. Now it is one of the cheaper parts. The expensive parts, coordination, integration, understanding, maintenance, have not moved.
 
-We are still optimising for a cost structure that no longer applies.
+We are still reaching for shared implementations as the default answer to consistency. That instinct was shaped by a cost structure that no longer applies.
 
 ---
 
@@ -48,13 +50,13 @@ We are still optimising for a cost structure that no longer applies.
 
 If code is cheap to produce, the value of sharing implementations diminishes relative to the cost of maintaining them. What remains valuable is sharing understanding.
 
-Instead of asking "how do we share this implementation?", the better question becomes: what is the canonical way this should behave? What constraints matter? What are the non-negotiables?
+Instead of asking "how do we share this implementation?", the better question becomes: what is the canonical way this should behave? What constraints matter? What are the non-negotiables? Consistency is still the goal. The mechanism changes.
 
-A design system makes this concrete. The valuable part was never the npm package. It was the decisions encoded within it. Spacing scales, colour semantics, interaction patterns, accessibility requirements. Those decisions are knowledge. The code that implements them is a vehicle.
+A design system makes this concrete. The valuable part was never the npm package. It was the decisions encoded within it. Spacing scales, colour semantics, interaction patterns, accessibility requirements. Those decisions are knowledge. The code that implements them is a vehicle. If ten teams implement the same specification independently and the results are consistent, the goal is met. It does not matter that the code is different.
 
 The obvious counter-argument: the package *enforces* those decisions. Remove it and you are relying on every team to correctly interpret a specification.
 
-That is a weaker guarantee. But consider what the stronger guarantee actually costs. A shared package at enterprise scale means version pinning across dozens of consumers, coordinated releases, migration guides, breaking change negotiations and a platform team that becomes a bottleneck for visual consistency. The enforcement is real, but so is the drag.
+That is a weaker guarantee. But consider what the stronger guarantee actually costs. A shared package at enterprise scale means version pinning across dozens of consumers, coordinated releases, migration guides, breaking change negotiations and a platform team that becomes a bottleneck for the very consistency it was meant to protect. The enforcement is real, but so is the drag.
 
 The question is not whether enforcement has value. It is whether the coordination cost of that enforcement exceeds the cost of occasional drift. At sufficient scale, it often does.
 
@@ -100,10 +102,10 @@ And there is a maturity threshold. Organisations that lack strong platform teams
 
 ## The uncomfortable part
 
-DRY has served us well. But it was shaped in a world where writing code was the dominant cost.
+Consistency matters. It has always mattered. But shared implementations were a means to that end, not the end itself. We treated them as synonymous for so long that questioning the mechanism feels like questioning the goal.
 
-That world is ending.
+It is not.
 
-The teams that will move fastest are not the ones with the most shared libraries. They are the ones with the clearest shared understanding. This requires admitting that principles we built careers on may no longer serve us the way they once did. Not because they were wrong, but because the conditions that made them right have changed.
+The teams that will move fastest are not the ones with the most shared libraries. They are the ones with the clearest shared understanding. This requires admitting that the tools we built careers on may no longer be the best way to achieve the outcomes we care about. Not because consistency stopped mattering, but because the way we achieve it has better options now.
 
 The way we build software is changing. At enterprise scale, we cannot afford to pretend otherwise.
