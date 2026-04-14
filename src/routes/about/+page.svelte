@@ -33,81 +33,86 @@
 
 	<div class="about-content prose">
 		<p>
-			I'm Gareth Clubb, an Engineering Manager at CrowdStrike. I lead frontend teams building
-			security tooling used by thousands of organisations worldwide.
+			I'm Gareth Clubb. I've worked in software engineering for twenty years across media,
+			travel, property, gaming and cybersecurity. I lead frontend teams at CrowdStrike,
+			building security tooling used by thousands of organisations.
 		</p>
 
 		<p>
-			My work focuses on improving how teams build and ship. That includes frontend
-			architecture, UI quality, developer tooling and the systems that support them. The aim
-			is to make delivery faster, more predictable and easier to maintain at scale.
+			The through-line has been the same problem: how do you build frontend systems that stay
+			fast, reliable and maintainable as everything around them changes? The tools shift. The
+			frameworks come and go. The underlying challenge does not.
 		</p>
 
 		<p>
-			I spend a lot of time working across teams, setting direction, aligning standards and
-			removing friction. The goal is not just to ship features, but to build systems and teams
-			that can sustain quality over time.
+			What has changed is the economics. AI has made producing code cheap. Architecture,
+			testing strategy, specifications and team judgement have not. They matter more now than
+			they did before. Most teams are still optimising for a cost structure that no longer
+			applies.
+		</p>
+
+		<p>
+			I build products on the side to stay close to the craft. It is easy to lose that
+			connection when you spend most of your time leading teams. Building things keeps me
+			honest about what is actually hard.
 		</p>
 
 		<h2>Background</h2>
 
 		<p>
-			Before CrowdStrike, I worked across media, travel, property and gaming.
+			Before CrowdStrike, I worked across several industries. Each shaped how I think about
+			building software.
 		</p>
 
 		<p>
-			At <strong>Telegraph Media Group</strong>, I helped modernise the frontend platform
-			serving millions of readers. The focus was performance, platform architecture and
-			improving how teams built and shipped across a large content system.
+			At <strong>Telegraph Media Group</strong>, I worked on the frontend platform serving
+			millions of readers. Performance at that scale is not optional. It taught me that
+			architecture decisions made early compound for years.
 		</p>
 
 		<p>
 			At <strong>Houseful</strong>, I led frontend architecture and the replatforming of
-			Alto, an estate agency software product. This involved consolidating shared UI systems,
-			improving build performance and establishing accessibility standards adopted across
-			the organisation.
+			Alto, an estate agency product used across the UK. That meant consolidating shared UI
+			systems, improving build performance and establishing accessibility standards that
+			held across the organisation.
 		</p>
 
 		<p>
-			Earlier in my career, I worked at <strong>TUI</strong> on specialist travel brands
-			such as Crystal Ski, building booking and search experiences under real commercial
-			pressure where performance and reliability were critical.
+			At <strong>TUI</strong>, I built booking and search experiences for specialist travel
+			brands under real commercial pressure. Systems that are slow or unreliable lose money
+			visibly and immediately.
 		</p>
 
 		<p>
-			At <strong>Jagex</strong>, I led a team building the web platform that acts as the
-			entry point into the game, alongside internal tooling to support it.
+			At <strong>Jagex</strong>, I led a team building the web platform and internal tooling
+			for RuneScape. That was where I first learned how platform work differs from product
+			work.
 		</p>
 
 		<h2>How I think about engineering</h2>
 
 		<p>
-			I focus on how frontend systems behave at scale. That means keeping codebases
-			understandable, making performance and behaviour observable and allowing teams to work
+			I care about how frontend systems behave at scale. That means codebases that remain
+			understandable, performance and behaviour that are observable and teams that can work
 			independently without creating fragmentation.
 		</p>
 
 		<p>
-			Strong typing, build tooling and testing strategy are part of the system, not additions
-			to it. The aim is to make changes predictable, reviewable and safe as the organisation
-			grows.
+			Strong typing, build tooling and testing strategy are not additions to the system. They
+			are the system. When these are treated as optional, quality becomes a matter of
+			individual discipline. When they are structural, quality becomes a default.
 		</p>
 
-		<h2>What I focus on</h2>
-
-		<ul>
-			<li>Frontend architecture and platform strategy</li>
-			<li>Frontend infrastructure for performance and scale</li>
-			<li>UI quality, testing strategy and accessibility</li>
-			<li>Developer tooling, build systems and workflows</li>
-			<li>Performance and Core Web Vitals</li>
-			<li>Observability, release processes and incident management</li>
-			<li>Team structure, leadership and engineering culture</li>
-		</ul>
+		<p>
+			I think the most important shift happening in software development right now is the
+			move from code as the primary output to specifications, constraints and validation as
+			the primary output. AI is making code cheap. The teams that invest in everything around
+			the code will be the ones that benefit most.
+		</p>
 
 		<p>
-			This site is where I write about these areas and share some of the products I've built.
-			You can find me on
+			I write here about systems, tradeoffs and how software gets built at scale. You can
+			find me on
 			<a href="https://github.com/digitalclubb" rel="noopener noreferrer">GitHub</a> or
 			<a href="https://linkedin.com/in/garethclubb" rel="noopener noreferrer">LinkedIn</a>.
 		</p>

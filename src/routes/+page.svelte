@@ -10,62 +10,90 @@
 
 <section class="hero" aria-labelledby="hero-heading">
 	<h1 id="hero-heading" class="hero-title">
-		I build and lead teams that ship fast, accessible and reliable web platforms.
+		I've spent twenty years building frontend systems at scale. The question now is what happens
+		when writing code is no longer the hard part.
 	</h1>
 	<p class="hero-intro">
-		Engineering Manager at CrowdStrike. I work across frontend architecture, developer tooling
-		and UI quality, helping teams build and ship with confidence. Increasingly focused on
-		AI-assisted development and the responsible use of AI in production systems.
+		Engineering Manager at CrowdStrike, leading frontend teams that build security tooling used
+		by thousands of organisations. My work spans architecture, developer tooling and quality
+		systems. I build products independently to stay close to the craft and test ideas against
+		real problems.
 	</p>
+	<p class="hero-emphasis">Code is getting cheaper to produce. The things around it are not.</p>
 </section>
 
 <section class="section" aria-labelledby="how-i-work">
 	<h2 id="how-i-work" class="section-heading">How I work</h2>
 	<p class="section-intro">
-		I work across product, engineering and the systems that connect them. Most of my time is
-		spent reducing friction, improving confidence in what we ship and helping teams move faster
-		without losing control.
+		Most of what I do comes down to one question: how do you keep quality high when the system
+		is changing faster than any team can manually review? I work on the architecture, tooling
+		and team structures that make that possible.
 	</p>
 	<ul class="approach-list">
 		<li class="approach-item">
-			<h3 class="approach-title">Building teams that can deliver</h3>
+			<h3 class="approach-title">Teams built around ownership, not process</h3>
 			<p class="approach-description">
-				I lead frontend engineers and SDETs, focusing on creating an environment where
-				people can do their best work. That means clear direction, psychological safety
-				and a shared understanding of what good looks like.
+				I lead frontend engineers and SDETs. The focus is on giving teams enough context
+				and autonomy to make good decisions without waiting for permission. Structure
+				matters, but only if it creates clarity rather than overhead.
 			</p>
 		</li>
 		<li class="approach-item">
-			<h3 class="approach-title">Architecture that holds up under change</h3>
+			<h3 class="approach-title">Architecture that absorbs change</h3>
 			<p class="approach-description">
-				I focus on frontend architecture that stays fast and maintainable as products
-				evolve. Performance budgets, observability and build systems are treated as
-				part of the product, not something to revisit later.
+				Frontend systems at scale need to handle constant change without accumulating
+				debt. I focus on performance budgets, observable behaviour and build systems
+				that are part of the product, not afterthoughts.
 			</p>
 		</li>
 		<li class="approach-item">
-			<h3 class="approach-title">Developer experience as a force multiplier</h3>
+			<h3 class="approach-title">Tooling as infrastructure</h3>
 			<p class="approach-description">
-				I invest in tooling, build pipelines and local development environments that
-				make it easy to work on the system. When changes are quick to make and easy to
-				verify, teams move faster and with more confidence.
+				Developer experience is not a perk. When local development, CI pipelines and
+				testing feedback are fast and reliable, teams move faster and make fewer
+				mistakes. I treat this as core infrastructure.
 			</p>
 		</li>
 		<li class="approach-item">
-			<h3 class="approach-title">Quality built into the system</h3>
+			<h3 class="approach-title">Quality built into the system, not bolted on through review</h3>
 			<p class="approach-description">
-				I work closely with SDETs to define UI quality strategy across teams. That
-				includes accessibility, visual regression and automation that gives teams
-				confidence without slowing them down.
+				I work with SDETs to embed quality into architecture and automation.
+				Accessibility, visual regression and test coverage should be structural
+				guarantees, not things that depend on someone catching them in review.
 			</p>
 		</li>
 		<li class="approach-item">
-			<h3 class="approach-title">Introducing AI carefully</h3>
+			<h3 class="approach-title">AI in the development lifecycle</h3>
 			<p class="approach-description">
-				I'm focused on bringing AI into the development lifecycle in a way that remains
-				reviewable and predictable. Generated code goes through the same process as any
-				other change, and the system makes it clear what has changed and why.
+				I'm bringing AI into how we build software. Not as a novelty, but as a reason
+				to rethink what pipelines, specifications and review need to look like when
+				code is cheap to produce and expensive to validate.
 			</p>
+		</li>
+	</ul>
+</section>
+
+<section class="section" aria-labelledby="what-i-believe">
+	<h2 id="what-i-believe" class="section-heading">What I believe</h2>
+	<ul class="beliefs-list">
+		<li class="belief-item">
+			AI has changed the cost of producing code. It has not changed the cost of producing
+			correct code. That gap is where most teams will fail.
+		</li>
+		<li class="belief-item">
+			Specifications, constraints and validation are becoming the primary output of
+			engineering. Code is becoming a byproduct.
+		</li>
+		<li class="belief-item">
+			Quality that depends on someone catching it in review is not quality. It is luck.
+		</li>
+		<li class="belief-item">
+			Shared understanding scales. Shared implementations often do not. Reuse knowledge,
+			not code.
+		</li>
+		<li class="belief-item">
+			Developer experience is infrastructure. Slow tooling is a tax on every engineer,
+			every day.
 		</li>
 	</ul>
 </section>
@@ -125,6 +153,14 @@
 		max-inline-size: 45rem;
 	}
 
+	.hero-emphasis {
+		margin-block-start: var(--space-lg);
+		font-size: var(--text-xl);
+		color: var(--color-text-secondary);
+		line-height: var(--leading-snug);
+		max-inline-size: 45rem;
+	}
+
 	.section {
 		margin-block-end: var(--space-2xl);
 	}
@@ -171,6 +207,24 @@
 		color: var(--color-text-secondary);
 		line-height: var(--leading-normal);
 		max-inline-size: var(--measure);
+	}
+
+	.beliefs-list {
+		display: grid;
+		gap: var(--space-md);
+	}
+
+	.belief-item {
+		color: var(--color-text-secondary);
+		line-height: var(--leading-normal);
+		max-inline-size: var(--measure);
+		padding-block-end: var(--space-md);
+		border-block-end: 1px solid var(--color-border);
+	}
+
+	.belief-item:last-child {
+		border-block-end: none;
+		padding-block-end: 0;
 	}
 
 	.work-list {
