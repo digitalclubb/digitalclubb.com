@@ -76,6 +76,7 @@
 	.diagram-svg {
 		display: block;
 		inline-size: 100%;
+		min-inline-size: 600px;
 		max-inline-size: 720px;
 		block-size: auto;
 	}

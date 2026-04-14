@@ -10,24 +10,48 @@
 
 <section class="hero" aria-labelledby="hero-heading">
 	<h1 id="hero-heading" class="hero-title">
-		I've spent twenty years building frontend systems at scale. The question now is what happens
-		when writing code is no longer the hard part.
+		The hard part of building software is no longer writing the code.
 	</h1>
 	<p class="hero-intro">
-		Engineering Manager at CrowdStrike, leading frontend teams that build security tooling used
-		by thousands of organisations. My work spans architecture, developer tooling and quality
-		systems. I build products independently to stay close to the craft and test ideas against
-		real problems.
+		I lead frontend teams at CrowdStrike, building security tooling used by thousands of
+		organisations. My work spans architecture, developer tooling and quality systems. I build
+		products independently to stay close to the craft and test ideas against real problems.
 	</p>
-	<p class="hero-emphasis">Code is getting cheaper to produce. The things around it are not.</p>
+	<p class="hero-aside">
+		Code is getting cheaper to produce. The things around it are not.
+	</p>
+</section>
+
+<section class="section" aria-labelledby="what-i-believe">
+	<h2 id="what-i-believe" class="section-heading">What I believe</h2>
+	<ul class="beliefs-list">
+		<li class="belief-item">
+			AI has changed the cost of producing code. It has not changed the cost of producing
+			correct code. That gap is where most teams will fail.
+		</li>
+		<li class="belief-item">
+			Specifications, constraints and validation are becoming the primary output of
+			engineering. Code is becoming a byproduct.
+		</li>
+		<li class="belief-item">
+			Quality that depends on someone catching it in review is not quality. It is luck.
+		</li>
+		<li class="belief-item">
+			Shared understanding scales. Shared implementations often do not. Reuse knowledge,
+			not code.
+		</li>
+		<li class="belief-item">
+			Developer experience is infrastructure. Slow tooling is a tax on every engineer,
+			every day.
+		</li>
+	</ul>
 </section>
 
 <section class="section" aria-labelledby="how-i-work">
 	<h2 id="how-i-work" class="section-heading">How I work</h2>
 	<p class="section-intro">
-		Most of what I do comes down to one question: how do you keep quality high when the system
-		is changing faster than any team can manually review? I work on the architecture, tooling
-		and team structures that make that possible.
+		How do you keep quality high when the system is changing faster than any team can manually
+		review?
 	</p>
 	<ul class="approach-list">
 		<li class="approach-item">
@@ -73,31 +97,6 @@
 	</ul>
 </section>
 
-<section class="section" aria-labelledby="what-i-believe">
-	<h2 id="what-i-believe" class="section-heading">What I believe</h2>
-	<ul class="beliefs-list">
-		<li class="belief-item">
-			AI has changed the cost of producing code. It has not changed the cost of producing
-			correct code. That gap is where most teams will fail.
-		</li>
-		<li class="belief-item">
-			Specifications, constraints and validation are becoming the primary output of
-			engineering. Code is becoming a byproduct.
-		</li>
-		<li class="belief-item">
-			Quality that depends on someone catching it in review is not quality. It is luck.
-		</li>
-		<li class="belief-item">
-			Shared understanding scales. Shared implementations often do not. Reuse knowledge,
-			not code.
-		</li>
-		<li class="belief-item">
-			Developer experience is infrastructure. Slow tooling is a tax on every engineer,
-			every day.
-		</li>
-	</ul>
-</section>
-
 <section class="section" aria-labelledby="selected-work">
 	<h2 id="selected-work" class="section-heading">Products</h2>
 	<ul class="work-list">
@@ -133,6 +132,8 @@
 </section>
 
 <style>
+	/* ——— Hero ——— */
+
 	.hero {
 		margin-block-end: var(--space-3xl);
 		max-inline-size: 50rem;
@@ -150,19 +151,21 @@
 		font-size: var(--text-lg);
 		color: var(--color-text-secondary);
 		line-height: var(--leading-normal);
-		max-inline-size: 45rem;
+		max-inline-size: var(--measure);
 	}
 
-	.hero-emphasis {
-		margin-block-start: var(--space-lg);
-		font-size: var(--text-xl);
-		color: var(--color-text-secondary);
-		line-height: var(--leading-snug);
-		max-inline-size: 45rem;
+	.hero-aside {
+		margin-block-start: var(--space-md);
+		font-size: var(--text-base);
+		color: var(--color-text-tertiary);
+		line-height: var(--leading-normal);
+		max-inline-size: var(--measure);
 	}
+
+	/* ——— Sections ——— */
 
 	.section {
-		margin-block-end: var(--space-2xl);
+		margin-block-end: var(--space-3xl);
 	}
 
 	.section-heading {
@@ -180,6 +183,22 @@
 		max-inline-size: var(--measure);
 		margin-block-end: var(--space-lg);
 	}
+
+	/* ——— Beliefs ——— */
+
+	.beliefs-list {
+		display: grid;
+		gap: var(--space-md);
+	}
+
+	.belief-item {
+		color: var(--color-text-secondary);
+		font-size: var(--text-base);
+		line-height: var(--leading-normal);
+		max-inline-size: var(--measure);
+	}
+
+	/* ——— Approach ——— */
 
 	.approach-list {
 		display: grid;
@@ -209,23 +228,7 @@
 		max-inline-size: var(--measure);
 	}
 
-	.beliefs-list {
-		display: grid;
-		gap: var(--space-md);
-	}
-
-	.belief-item {
-		color: var(--color-text-secondary);
-		line-height: var(--leading-normal);
-		max-inline-size: var(--measure);
-		padding-block-end: var(--space-md);
-		border-block-end: 1px solid var(--color-border);
-	}
-
-	.belief-item:last-child {
-		border-block-end: none;
-		padding-block-end: 0;
-	}
+	/* ——— Work ——— */
 
 	.work-list {
 		display: grid;
@@ -269,6 +272,8 @@
 		font-size: var(--text-base);
 		line-height: var(--leading-normal);
 	}
+
+	/* ——— Writing ——— */
 
 	.writing-list {
 		display: grid;

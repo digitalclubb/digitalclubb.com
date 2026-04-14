@@ -51,6 +51,9 @@
 		font-size: var(--text-base);
 		text-decoration: none;
 		letter-spacing: var(--tracking-tight);
+		min-block-size: 44px;
+		display: inline-flex;
+		align-items: center;
 	}
 
 	.header-links {
@@ -63,6 +66,10 @@
 		text-decoration: none;
 		color: var(--color-text-secondary);
 		transition: color var(--duration-fast) var(--easing-default);
+		padding: var(--space-xs) var(--space-sm);
+		min-block-size: 44px;
+		display: inline-flex;
+		align-items: center;
 	}
 
 	.header-link:hover {
@@ -72,5 +79,11 @@
 	.header-link[aria-current='page'] {
 		color: var(--color-text);
 		font-weight: 500;
+	}
+
+	@media (max-width: 640px) {
+		.header-links {
+			gap: var(--space-2xs);
+		}
 	}
 </style>

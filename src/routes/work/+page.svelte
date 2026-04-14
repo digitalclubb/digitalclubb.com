@@ -49,15 +49,22 @@
 				</header>
 
 				{#if images[entry.slug]}
-					<img
-						class="product-image"
-						src={images[entry.slug].src}
-						alt={images[entry.slug].alt}
-						width="1120"
-						height="600"
-						loading="lazy"
-						decoding="async"
-					/>
+					<picture>
+						<source
+							type="image/webp"
+							srcset="/products/responsive/{entry.slug}-560.webp 560w, /products/responsive/{entry.slug}-840.webp 840w, /products/responsive/{entry.slug}-1120.webp 1120w, /products/responsive/{entry.slug}-1680.webp 1680w"
+							sizes="(max-width: 640px) 100vw, 50vw"
+						/>
+						<img
+							class="product-image"
+							src={images[entry.slug].src}
+							alt={images[entry.slug].alt}
+							width="1120"
+							height="600"
+							loading="lazy"
+							decoding="async"
+						/>
+					</picture>
 				{/if}
 
 				<p class="product-summary">{entry.summary}</p>
@@ -115,6 +122,12 @@
 		border-radius: 6px;
 		border: 1px solid var(--color-border);
 		margin-block-end: var(--space-md);
+	}
+
+	@media (max-width: 640px) {
+		.product-image {
+			inline-size: 100%;
+		}
 	}
 
 	.product-summary {

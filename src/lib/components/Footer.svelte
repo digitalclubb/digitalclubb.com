@@ -32,16 +32,28 @@
 
 	.footer-links {
 		display: flex;
-		gap: var(--space-md);
+		gap: var(--space-xs);
 	}
 
 	.footer-link {
 		font-size: var(--text-sm);
 		color: var(--color-text-tertiary);
 		text-decoration: none;
+		padding: var(--space-xs) var(--space-sm);
+		min-block-size: 44px;
+		display: inline-flex;
+		align-items: center;
 	}
 
 	.footer-link:hover {
 		color: var(--color-text-secondary);
+	}
+
+	@media (max-width: 640px) {
+		.footer-inner {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--space-sm);
+		}
 	}
 </style>
