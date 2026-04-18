@@ -163,7 +163,7 @@
 	.hero-quote {
 		margin-block-start: var(--space-xl);
 		padding-inline-start: var(--space-md);
-		border-inline-start: 2px solid var(--color-border-strong);
+		border-inline-start: 2px solid var(--color-brand);
 		font-family: var(--font-serif);
 		font-style: italic;
 		font-size: var(--text-xl);
@@ -222,7 +222,7 @@
 	.approach-index {
 		font-family: var(--font-serif);
 		font-size: var(--text-sm);
-		color: var(--color-text-tertiary);
+		color: var(--color-brand);
 		font-variant-numeric: tabular-nums;
 		letter-spacing: var(--tracking-wide);
 	}
@@ -304,7 +304,7 @@
 	}
 
 	.work-link:hover .work-title {
-		color: var(--color-text-secondary);
+		color: var(--color-link-hover);
 	}
 
 	.work-summary {
@@ -348,7 +348,7 @@
 	}
 
 	.writing-link:hover .writing-title {
-		color: var(--color-text-secondary);
+		color: var(--color-link-hover);
 	}
 
 	.writing-summary {

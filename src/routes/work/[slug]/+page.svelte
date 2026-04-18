@@ -135,7 +135,7 @@
 	}
 
 	.case-study-url:hover {
-		color: var(--color-text-secondary);
+		color: var(--color-link-hover);
 	}
 
 	.case-study-footer {
@@ -151,6 +151,6 @@
 	}
 
 	.case-study-footer a:hover {
-		color: var(--color-text);
+		color: var(--color-link-hover);
 	}
 </style>

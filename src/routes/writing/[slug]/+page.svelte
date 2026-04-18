@@ -109,6 +109,6 @@
 	}
 
 	.article-footer a:hover {
-		color: var(--color-text);
+		color: var(--color-link-hover);
 	}
 </style>

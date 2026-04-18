@@ -62,6 +62,7 @@
 	}
 
 	.header-link {
+		position: relative;
 		font-size: var(--text-sm);
 		text-decoration: none;
 		color: var(--color-text-secondary);
@@ -79,6 +80,15 @@
 	.header-link[aria-current='page'] {
 		color: var(--color-text);
 		font-weight: 500;
+	}
+
+	.header-link[aria-current='page']::after {
+		content: '';
+		position: absolute;
+		inset-inline: var(--space-sm);
+		inset-block-end: calc(var(--space-xs) - 2px);
+		block-size: 2px;
+		background: var(--color-brand);
 	}
 
 	@media (max-width: 640px) {

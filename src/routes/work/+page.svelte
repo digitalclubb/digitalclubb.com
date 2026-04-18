@@ -118,7 +118,7 @@
 	}
 
 	.product-link:hover .product-name {
-		color: var(--color-text-secondary);
+		color: var(--color-link-hover);
 	}
 
 	.product-tagline {

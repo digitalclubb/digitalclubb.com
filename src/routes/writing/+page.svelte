@@ -87,7 +87,7 @@
 	}
 
 	.lead-link:hover .lead-title {
-		color: var(--color-text-secondary);
+		color: var(--color-link-hover);
 	}
 
 	.lead-summary {
@@ -123,7 +123,7 @@
 	}
 
 	.writing-link:hover .writing-title {
-		color: var(--color-text-secondary);
+		color: var(--color-link-hover);
 	}
 
 	.writing-summary {
