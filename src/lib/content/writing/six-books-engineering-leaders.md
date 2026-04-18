@@ -1,12 +1,12 @@
 ---
 title: "Six books that shaped how I lead engineering teams"
 date: "2026-04-18"
-summary: "The six books I keep returning to after nearly two decades leading engineering teams. What each one taught me and why they still matter."
+summary: "The six books I keep returning to after seven years as an engineering manager. What each one taught me and why they still matter."
 published: true
 tags: ["engineering", "leadership", "books", "career"]
 ---
 
-After nearly two decades of leading engineering teams, these are the six books I keep returning to. Some I read early and they gave me a language for things I was already doing. Others I read mid-career and they changed how I worked. They are the ones that still come up when I am coaching a new manager or talking myself through a decision.
+Every engineering manager ends up with a handful of books they keep coming back to. These are mine. Some gave me a language for things I was already doing. Others changed how I worked. They are the ones that still come up when I am coaching a new manager or talking myself through a decision.
 
 No order. No ranking. Just what I took from each one and why I think they still matter.
 
