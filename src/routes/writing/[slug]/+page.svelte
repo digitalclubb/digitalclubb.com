@@ -45,13 +45,15 @@
 
 <article class="article">
 	<header class="article-header">
-		<time class="article-date" datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
+		<p class="article-meta">
+			<time datetime={data.meta.date}>{formatDate(data.meta.date)}</time>
+			<span aria-hidden="true">·</span>
+			<span>{data.readingTime}</span>
+		</p>
 		<h1 class="article-title">{data.meta.title}</h1>
-		<p class="article-byline">By {siteConfig.author.name}, {siteConfig.author.role} at {siteConfig.author.company}</p>
-		<p class="article-reading-time">{data.readingTime}</p>
 	</header>
 
-	<div class="prose">
+	<div class="prose article-prose">
 		{#if data.content}
 			{@const Content = data.content}
 			<Content />
@@ -69,41 +71,39 @@
 	}
 
 	.article-header {
-		margin-block-end: var(--space-xl);
+		margin-block-end: var(--space-2xl);
 	}
 
-	.article-date {
+	.article-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
 		font-size: var(--text-sm);
 		color: var(--color-text-tertiary);
+		margin-block-end: var(--space-md);
 	}
 
 	.article-title {
 		font-size: var(--text-3xl);
 		font-weight: 700;
 		letter-spacing: var(--tracking-tight);
-		margin-block-start: var(--space-xs);
+		line-height: var(--leading-tight);
 	}
 
-	.article-byline {
-		margin-block-start: var(--space-sm);
-		font-size: var(--text-sm);
-		color: var(--color-text-secondary);
-	}
-
-	.article-reading-time {
-		margin-block-start: var(--space-2xs);
-		font-size: var(--text-sm);
-		color: var(--color-text-tertiary);
+	.article-prose :global(> p:first-of-type) {
+		font-size: var(--text-lg);
+		line-height: var(--leading-snug);
+		color: var(--color-text);
 	}
 
 	.article-footer {
-		margin-block-start: var(--space-2xl);
+		margin-block-start: var(--space-3xl);
 		padding-block-start: var(--space-lg);
 		border-block-start: 1px solid var(--color-border);
 	}
 
 	.article-footer a {
-		font-size: var(--text-sm);
+		font-size: var(--text-base);
 		color: var(--color-text-secondary);
 		text-decoration: none;
 	}

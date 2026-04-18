@@ -17,6 +17,7 @@ export interface WritingMeta {
 	slug: string;
 	published: boolean;
 	tags?: string[];
+	readingTime: string;
 }
 
 type MdModule = {
@@ -42,14 +43,21 @@ export async function getWorkEntries(): Promise<WorkMeta[]> {
 
 export async function getWritingEntries(): Promise<WritingMeta[]> {
 	const modules = import.meta.glob<MdModule>('$content/writing/*.md', { eager: true });
+	const rawModules = import.meta.glob('$content/writing/*.md', {
+		eager: true,
+		query: '?raw',
+		import: 'default'
+	});
+	const { readingTime } = await import('./reading-time');
 	const entries: WritingMeta[] = [];
 
 	for (const [path, module] of Object.entries(modules)) {
 		const slug = path.split('/').pop()?.replace('.md', '') ?? '';
-		const meta = module.metadata as Omit<WritingMeta, 'slug'>;
+		const meta = module.metadata as Omit<WritingMeta, 'slug' | 'readingTime'>;
+		const raw = (rawModules[path] as string | undefined) ?? '';
 
 		if (meta.published !== false) {
-			entries.push({ ...meta, slug });
+			entries.push({ ...meta, slug, readingTime: readingTime(raw) });
 		}
 	}
 

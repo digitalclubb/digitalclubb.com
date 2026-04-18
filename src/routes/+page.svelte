@@ -17,34 +17,9 @@
 		organisations. My work spans architecture, developer tooling and quality systems. I build
 		products independently to stay close to the craft and test ideas against real problems.
 	</p>
-	<p class="hero-aside">
+	<p class="hero-quote">
 		Code is getting cheaper to produce. The things around it are not.
 	</p>
-</section>
-
-<section class="section" aria-labelledby="what-i-believe">
-	<h2 id="what-i-believe" class="section-heading">What I believe</h2>
-	<ul class="beliefs-list">
-		<li class="belief-item">
-			AI has changed the cost of producing code. It has not changed the cost of producing
-			correct code. That gap is where most teams will fail.
-		</li>
-		<li class="belief-item">
-			Specifications, constraints and validation are becoming the primary output of
-			engineering. Code is becoming a byproduct.
-		</li>
-		<li class="belief-item">
-			Quality that depends on someone catching it in review is not quality. It is luck.
-		</li>
-		<li class="belief-item">
-			Shared understanding scales. Shared implementations often do not. Reuse knowledge,
-			not code.
-		</li>
-		<li class="belief-item">
-			Developer experience is infrastructure. Slow tooling is a tax on every engineer,
-			every day.
-		</li>
-	</ul>
 </section>
 
 <section class="section" aria-labelledby="how-i-work">
@@ -53,9 +28,12 @@
 		How do you keep quality high when the system is changing faster than any team can manually
 		review?
 	</p>
-	<ul class="approach-list">
+	<ol class="approach-list">
 		<li class="approach-item">
-			<h3 class="approach-title">Teams built around ownership, not process</h3>
+			<div class="approach-head">
+				<span class="approach-index" aria-hidden="true">01</span>
+				<h3 class="approach-title">Teams built around ownership, not process</h3>
+			</div>
 			<p class="approach-description">
 				I lead frontend engineers and SDETs. The focus is on giving teams enough context
 				and autonomy to make good decisions without waiting for permission. Structure
@@ -63,7 +41,10 @@
 			</p>
 		</li>
 		<li class="approach-item">
-			<h3 class="approach-title">Architecture that absorbs change</h3>
+			<div class="approach-head">
+				<span class="approach-index" aria-hidden="true">02</span>
+				<h3 class="approach-title">Architecture that absorbs change</h3>
+			</div>
 			<p class="approach-description">
 				Frontend systems at scale need to handle constant change without accumulating
 				debt. I focus on performance budgets, observable behaviour and build systems
@@ -71,7 +52,10 @@
 			</p>
 		</li>
 		<li class="approach-item">
-			<h3 class="approach-title">Tooling as infrastructure</h3>
+			<div class="approach-head">
+				<span class="approach-index" aria-hidden="true">03</span>
+				<h3 class="approach-title">Tooling as infrastructure</h3>
+			</div>
 			<p class="approach-description">
 				Developer experience is not a perk. When local development, CI pipelines and
 				testing feedback are fast and reliable, teams move faster and make fewer
@@ -79,7 +63,10 @@
 			</p>
 		</li>
 		<li class="approach-item">
-			<h3 class="approach-title">Quality built into the system, not bolted on through review</h3>
+			<div class="approach-head">
+				<span class="approach-index" aria-hidden="true">04</span>
+				<h3 class="approach-title">Quality built into the system, not bolted on through review</h3>
+			</div>
 			<p class="approach-description">
 				I work with SDETs to embed quality into architecture and automation.
 				Accessibility, visual regression and test coverage should be structural
@@ -87,22 +74,41 @@
 			</p>
 		</li>
 		<li class="approach-item">
-			<h3 class="approach-title">AI in the development lifecycle</h3>
+			<div class="approach-head">
+				<span class="approach-index" aria-hidden="true">05</span>
+				<h3 class="approach-title">AI in the development lifecycle</h3>
+			</div>
 			<p class="approach-description">
 				I'm bringing AI into how we build software. Not as a novelty, but as a reason
 				to rethink what pipelines, specifications and review need to look like when
 				code is cheap to produce and expensive to validate.
 			</p>
 		</li>
-	</ul>
+	</ol>
 </section>
 
 <section class="section" aria-labelledby="selected-work">
 	<h2 id="selected-work" class="section-heading">Products</h2>
-	<ul class="work-list">
+	<ul class="work-grid">
 		{#each data.work as entry}
 			<li class="work-item">
 				<a href="/work/{entry.slug}" class="work-link">
+					<picture class="work-thumb">
+						<source
+							type="image/webp"
+							srcset="/products/responsive/{entry.slug}-560.webp 560w, /products/responsive/{entry.slug}-840.webp 840w, /products/responsive/{entry.slug}-1120.webp 1120w"
+							sizes="(max-width: 720px) 100vw, 34rem"
+						/>
+						<img
+							class="work-image"
+							src="/products/{entry.slug}.png"
+							alt=""
+							width="1120"
+							height="600"
+							loading="lazy"
+							decoding="async"
+						/>
+					</picture>
 					<span class="work-company">{entry.company}</span>
 					<h3 class="work-title">{entry.title}</h3>
 					<p class="work-summary">{entry.summary}</p>
@@ -154,11 +160,15 @@
 		max-inline-size: var(--measure);
 	}
 
-	.hero-aside {
-		margin-block-start: var(--space-md);
-		font-size: var(--text-base);
-		color: var(--color-text-tertiary);
-		line-height: var(--leading-normal);
+	.hero-quote {
+		margin-block-start: var(--space-xl);
+		padding-inline-start: var(--space-md);
+		border-inline-start: 2px solid var(--color-border-strong);
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: var(--text-xl);
+		line-height: var(--leading-snug);
+		color: var(--color-text);
 		max-inline-size: var(--measure);
 	}
 
@@ -181,67 +191,79 @@
 		color: var(--color-text-secondary);
 		line-height: var(--leading-normal);
 		max-inline-size: var(--measure);
-		margin-block-end: var(--space-lg);
-	}
-
-	/* ——— Beliefs ——— */
-
-	.beliefs-list {
-		display: grid;
-		gap: var(--space-md);
-	}
-
-	.belief-item {
-		color: var(--color-text-secondary);
-		font-size: var(--text-base);
-		line-height: var(--leading-normal);
-		max-inline-size: var(--measure);
+		margin-block-end: var(--space-xl);
 	}
 
 	/* ——— Approach ——— */
 
 	.approach-list {
-		display: grid;
-		gap: var(--space-lg);
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
 	.approach-item {
-		padding-block-end: var(--space-lg);
-		border-block-end: 1px solid var(--color-border);
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-sm);
+		padding-block: var(--space-lg);
 	}
 
-	.approach-item:last-child {
-		border-block-end: none;
-		padding-block-end: 0;
+	.approach-item + .approach-item {
+		border-block-start: 1px solid var(--color-border);
+	}
+
+	.approach-head {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-sm);
+	}
+
+	.approach-index {
+		font-family: var(--font-serif);
+		font-size: var(--text-sm);
+		color: var(--color-text-tertiary);
+		font-variant-numeric: tabular-nums;
+		letter-spacing: var(--tracking-wide);
 	}
 
 	.approach-title {
 		font-size: var(--text-base);
 		font-weight: 600;
 		letter-spacing: var(--tracking-tight);
+		line-height: var(--leading-snug);
 	}
 
 	.approach-description {
-		margin-block-start: var(--space-xs);
 		color: var(--color-text-secondary);
 		line-height: var(--leading-normal);
 		max-inline-size: var(--measure);
 	}
 
+	@media (min-width: 720px) {
+		.approach-item {
+			grid-template-columns: 18rem 1fr;
+			gap: var(--space-xl);
+			align-items: baseline;
+		}
+	}
+
 	/* ——— Work ——— */
 
-	.work-list {
+	.work-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
 		display: grid;
-		gap: var(--space-lg);
+		grid-template-columns: 1fr;
+		gap: var(--space-2xl);
 	}
 
-	.work-item {
-		border-block-end: 1px solid var(--color-border);
-		padding-block-end: var(--space-lg);
-	}
-
-	.work-item:last-child {
-		border-block-end: none;
+	@media (min-width: 720px) {
+		.work-grid {
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: var(--space-xl);
+		}
 	}
 
 	.work-link {
@@ -249,17 +271,36 @@
 		display: block;
 	}
 
+	.work-thumb {
+		display: block;
+		margin-block-end: var(--space-md);
+	}
+
+	.work-image {
+		display: block;
+		inline-size: 100%;
+		block-size: auto;
+		border-radius: 6px;
+		border: 1px solid var(--color-border);
+	}
+
+	.work-link:hover .work-image {
+		border-color: var(--color-border-strong);
+	}
+
 	.work-company {
+		display: block;
 		font-size: var(--text-sm);
 		color: var(--color-text-tertiary);
 		font-weight: 500;
 	}
 
 	.work-title {
-		font-size: var(--text-xl);
+		font-size: var(--text-lg);
 		font-weight: 600;
 		margin-block-start: var(--space-2xs);
 		letter-spacing: var(--tracking-tight);
+		line-height: var(--leading-snug);
 	}
 
 	.work-link:hover .work-title {

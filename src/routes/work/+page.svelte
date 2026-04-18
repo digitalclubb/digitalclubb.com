@@ -43,17 +43,12 @@
 	{#each data.work as entry}
 		<li class="product-item">
 			<a href="/work/{entry.slug}" class="product-link">
-				<header class="product-header">
-					<h2 class="product-name">{entry.company}</h2>
-					<p class="product-tagline">{taglines[entry.slug] ?? entry.title}</p>
-				</header>
-
 				{#if images[entry.slug]}
-					<picture>
+					<picture class="product-media">
 						<source
 							type="image/webp"
 							srcset="/products/responsive/{entry.slug}-560.webp 560w, /products/responsive/{entry.slug}-840.webp 840w, /products/responsive/{entry.slug}-1120.webp 1120w, /products/responsive/{entry.slug}-1680.webp 1680w"
-							sizes="(max-width: 640px) 100vw, 50vw"
+							sizes="(max-width: 860px) 100vw, 34rem"
 						/>
 						<img
 							class="product-image"
@@ -67,7 +62,12 @@
 					</picture>
 				{/if}
 
-				<p class="product-summary">{entry.summary}</p>
+				<div class="product-body">
+					<p class="product-meta">{entry.role} · {entry.period}</p>
+					<h2 class="product-name">{entry.company}</h2>
+					<p class="product-tagline">{taglines[entry.slug] ?? entry.title}</p>
+					<p class="product-summary">{entry.summary}</p>
+				</div>
 			</a>
 		</li>
 	{/each}
@@ -76,26 +76,38 @@
 <style>
 	.product-list {
 		display: grid;
-		gap: var(--space-2xl);
-	}
-
-	.product-item {
-		padding-block-end: var(--space-2xl);
-		border-block-end: 1px solid var(--color-border);
-	}
-
-	.product-item:last-child {
-		border-block-end: none;
-		padding-block-end: 0;
+		gap: var(--space-3xl);
 	}
 
 	.product-link {
 		text-decoration: none;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-md);
+		align-items: start;
+	}
+
+	.product-media {
 		display: block;
 	}
 
-	.product-header {
-		margin-block-end: var(--space-md);
+	.product-image {
+		display: block;
+		inline-size: 100%;
+		block-size: auto;
+		border-radius: 6px;
+		border: 1px solid var(--color-border);
+		transition: border-color var(--duration-normal) var(--easing-default);
+	}
+
+	.product-link:hover .product-image {
+		border-color: var(--color-border-strong);
+	}
+
+	.product-meta {
+		font-size: var(--text-sm);
+		color: var(--color-text-tertiary);
+		margin-block-end: var(--space-sm);
 	}
 
 	.product-name {
@@ -115,24 +127,22 @@
 		color: var(--color-text-tertiary);
 	}
 
-	.product-image {
-		display: block;
-		inline-size: 50%;
-		block-size: auto;
-		border-radius: 6px;
-		border: 1px solid var(--color-border);
-		margin-block-end: var(--space-md);
-	}
-
-	@media (max-width: 640px) {
-		.product-image {
-			inline-size: 100%;
-		}
-	}
-
 	.product-summary {
+		margin-block-start: var(--space-md);
 		color: var(--color-text-secondary);
 		line-height: var(--leading-normal);
 		max-inline-size: var(--measure);
+	}
+
+	@media (min-width: 860px) {
+		.product-link {
+			grid-template-columns: 1fr 1fr;
+			column-gap: var(--space-2xl);
+			align-items: center;
+		}
+
+		.product-item:nth-child(even) .product-media {
+			order: 2;
+		}
 	}
 </style>

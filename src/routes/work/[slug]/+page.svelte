@@ -1,21 +1,21 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO.svelte';
-	import RemindWiseDiagram from '$lib/components/diagrams/RemindWiseDiagram.svelte';
-	import ImpleraDiagram from '$lib/components/diagrams/ImpleraDiagram.svelte';
-	import CompariaDiagram from '$lib/components/diagrams/CompariaDiagram.svelte';
-	import EqualPlayDiagram from '$lib/components/diagrams/EqualPlayDiagram.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
-	const diagrams: Record<string, typeof RemindWiseDiagram> = {
-		remindwise: RemindWiseDiagram,
-		implera: ImpleraDiagram,
-		comparia: CompariaDiagram,
-		equalplay: EqualPlayDiagram
+	const alts: Record<string, string> = {
+		remindwise:
+			'RemindWise dashboard showing household records including car insurance, boiler service and MOT with status indicators and renewal dates',
+		implera:
+			'Implera quality analysis pipeline showing a GitHub repository flowing through deterministic and AI review layers across seven domains to produce a quality score',
+		comparia:
+			'Comparia comparison table scoring three televisions across picture quality, gaming, price, brightness and value, with a recommended choice',
+		equalplay:
+			'Equal Play game view showing playing and bench groups with player chips, next substitution suggestion and make sub action'
 	};
 
-	const Diagram = $derived(diagrams[data.meta.slug]);
+	const imageAlt = $derived(alts[data.meta.slug] ?? `${data.meta.company} product screenshot`);
 </script>
 
 <SEO
@@ -39,11 +39,23 @@
 		</div>
 	</header>
 
-	{#if Diagram}
-		<Diagram />
-	{/if}
+	<picture class="case-study-hero">
+		<source
+			type="image/webp"
+			srcset="/products/responsive/{data.meta.slug}-560.webp 560w, /products/responsive/{data.meta.slug}-840.webp 840w, /products/responsive/{data.meta.slug}-1120.webp 1120w, /products/responsive/{data.meta.slug}-1680.webp 1680w"
+			sizes="(max-width: 720px) 100vw, 42rem"
+		/>
+		<img
+			class="case-study-hero-image"
+			src="/products/{data.meta.slug}.png"
+			alt={imageAlt}
+			width="1120"
+			height="600"
+			decoding="async"
+		/>
+	</picture>
 
-	<div class="prose">
+	<div class="prose case-study-prose">
 		{#if data.content}
 			{@const Content = data.content}
 			<Content />
@@ -61,7 +73,26 @@
 	}
 
 	.case-study-header {
-		margin-block-end: var(--space-xl);
+		margin-block-end: var(--space-2xl);
+	}
+
+	.case-study-hero {
+		display: block;
+		margin-block-end: var(--space-2xl);
+	}
+
+	.case-study-hero-image {
+		display: block;
+		inline-size: 100%;
+		block-size: auto;
+		border-radius: 6px;
+		border: 1px solid var(--color-border);
+	}
+
+	.case-study-prose :global(> p:first-of-type) {
+		font-size: var(--text-lg);
+		line-height: var(--leading-snug);
+		color: var(--color-text);
 	}
 
 	.case-study-name {
@@ -108,13 +139,13 @@
 	}
 
 	.case-study-footer {
-		margin-block-start: var(--space-2xl);
+		margin-block-start: var(--space-3xl);
 		padding-block-start: var(--space-lg);
 		border-block-start: 1px solid var(--color-border);
 	}
 
 	.case-study-footer a {
-		font-size: var(--text-sm);
+		font-size: var(--text-base);
 		color: var(--color-text-secondary);
 		text-decoration: none;
 	}

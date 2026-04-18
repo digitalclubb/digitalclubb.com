@@ -1,5 +1,7 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO.svelte';
+
+	const portraitEnabled = true;
 </script>
 
 <SEO
@@ -29,15 +31,30 @@
 </svelte:head>
 
 <article class="about">
-	<h1 class="about-title">About</h1>
+	<header class="about-header" class:has-portrait={portraitEnabled}>
+		{#if portraitEnabled}
+			<picture class="about-portrait">
+				<source type="image/webp" srcset="/portrait.webp" />
+				<img
+					src="/portrait.jpg"
+					alt="Gareth Clubb"
+					width="400"
+					height="400"
+					decoding="async"
+				/>
+			</picture>
+		{/if}
+		<div class="about-header-text">
+			<h1 class="about-title">About</h1>
+			<p class="about-lead">
+				I'm Gareth Clubb. I've worked in software engineering for twenty years across media,
+				travel, property, gaming and cybersecurity. I lead frontend teams at CrowdStrike,
+				building security tooling used by thousands of organisations.
+			</p>
+		</div>
+	</header>
 
 	<div class="about-content prose">
-		<p>
-			I'm Gareth Clubb. I've worked in software engineering for twenty years across media,
-			travel, property, gaming and cybersecurity. I lead frontend teams at CrowdStrike,
-			building security tooling used by thousands of organisations.
-		</p>
-
 		<p>
 			The through-line has been the same problem: how do you build frontend systems that stay
 			fast, reliable and maintainable as everything around them changes? The tools shift. The
@@ -121,13 +138,68 @@
 
 <style>
 	.about {
-		max-inline-size: var(--measure);
+		max-inline-size: 52rem;
+	}
+
+	.about-header {
+		margin-block-end: var(--space-2xl);
+	}
+
+	.about-portrait {
+		display: block;
+		margin-block-end: var(--space-lg);
+	}
+
+	.about-portrait img {
+		display: block;
+		inline-size: 15rem;
+		block-size: 15rem;
+		object-fit: cover;
+		border-radius: 6px;
+		border: 1px solid var(--color-border);
 	}
 
 	.about-title {
 		font-size: var(--text-3xl);
 		font-weight: 700;
 		letter-spacing: var(--tracking-tight);
-		margin-block-end: var(--space-xl);
+	}
+
+	.about-lead {
+		margin-block-start: var(--space-md);
+		font-size: var(--text-lg);
+		color: var(--color-text-secondary);
+		line-height: var(--leading-normal);
+		max-inline-size: var(--measure);
+	}
+
+	@media (min-width: 640px) {
+		.about-header.has-portrait {
+			display: grid;
+			grid-template-columns: 15rem 1fr;
+			column-gap: var(--space-xl);
+			align-items: start;
+		}
+
+		.about-header.has-portrait .about-portrait {
+			margin-block-end: 0;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.about-portrait img {
+			inline-size: 12rem;
+			block-size: 12rem;
+		}
+	}
+
+	.about-content :global(h2) {
+		font-size: var(--text-sm);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-wide);
+		color: var(--color-text-tertiary);
+		margin-block-start: var(--space-2xl);
+		margin-block-end: var(--space-md);
 	}
 </style>

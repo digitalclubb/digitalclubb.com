@@ -6,7 +6,7 @@ import type { Component } from 'svelte';
 
 type MdModule = {
 	default: Component;
-	metadata: Omit<WritingMeta, 'slug'>;
+	metadata: Omit<WritingMeta, 'slug' | 'readingTime'>;
 };
 
 export const load: PageLoad = async ({ params }) => {
