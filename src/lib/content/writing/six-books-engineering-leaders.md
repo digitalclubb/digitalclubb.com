@@ -6,9 +6,7 @@ published: true
 tags: ["engineering", "leadership", "books", "career"]
 ---
 
-Book lists are cheap. Type "best books for engineering managers" into any search engine and you get a wall of the same titles, often recommended by people who have clearly not read them.
-
-These are not titles pulled from a listicle. They are the six books I have returned to over nearly two decades of leading engineering teams. Some I read early and they gave me a language for things I was already doing. Others I read mid-career and they forced me to change how I worked. They are the ones that still come up when I am coaching a new manager or talking myself through a decision.
+After nearly two decades of leading engineering teams, these are the six books I keep returning to. Some I read early and they gave me a language for things I was already doing. Others I read mid-career and they changed how I worked. They are the ones that still come up when I am coaching a new manager or talking myself through a decision.
 
 No order. No ranking. Just what I took from each one and why I think they still matter.
 
