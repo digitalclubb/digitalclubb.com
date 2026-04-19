@@ -29,6 +29,7 @@ const config = {
 		alias: {
 			$content: 'src/lib/content'
 		},
+		inlineStyleThreshold: 10240,
 		prerender: {
 			handleUnseenRoutes: 'ignore'
 		}
