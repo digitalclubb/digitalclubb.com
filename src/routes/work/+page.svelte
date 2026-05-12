@@ -9,7 +9,10 @@
 		remindwise: 'Household renewal tracking',
 		implera: 'Codebase quality intelligence',
 		comparia: 'Structured decision-making',
-		equalplay: 'Fair rotations for youth sport'
+		equalplay: 'Fair rotations for youth sport',
+		isthisdodgy: 'Plain-English scam checking',
+		ispollenhigh: 'UK pollen levels, answered fast',
+		ispowercheap: 'When the grid is cheap, in one word'
 	};
 
 	const images: Record<string, { src: string; alt: string }> = {
@@ -28,6 +31,18 @@
 		equalplay: {
 			src: '/products/equalplay.png',
 			alt: 'Equal Play game view showing playing and bench groups with player chips, next substitution suggestion and make sub action'
+		},
+		isthisdodgy: {
+			src: '/products/isthisdodgy.png',
+			alt: 'isthisdodgy.co.uk showing a pasted delivery-fee text returned as a likely dodgy verdict, with the reasons behind it and advice on what to do next'
+		},
+		ispollenhigh: {
+			src: '/products/ispollenhigh.png',
+			alt: 'ispollenhigh.co.uk showing a large "yes, pollen is high in London today" headline above the pollen index as a big numeral, a grass, tree and weed breakdown and a five-day outlook, on a warm off-white almanac-style page'
+		},
+		ispowercheap: {
+			src: '/products/ispowercheap.png',
+			alt: 'ispowercheap.co.uk showing a huge "YES" on a green-tinted full-screen background, the line "wind is meeting 62% of demand right now" beneath it, an outlook strip of upcoming cheap and peak windows and appliance chips for the dishwasher, washing machine and EV charge'
 		}
 	};
 </script>

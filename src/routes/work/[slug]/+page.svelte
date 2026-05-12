@@ -12,7 +12,13 @@
 		comparia:
 			'Comparia comparison table scoring three televisions across picture quality, gaming, price, brightness and value, with a recommended choice',
 		equalplay:
-			'Equal Play game view showing playing and bench groups with player chips, next substitution suggestion and make sub action'
+			'Equal Play game view showing playing and bench groups with player chips, next substitution suggestion and make sub action',
+		isthisdodgy:
+			'isthisdodgy.co.uk showing a pasted delivery-fee text returned as a likely dodgy verdict, with the reasons behind it and advice on what to do next',
+		ispollenhigh:
+			'ispollenhigh.co.uk showing a large "yes, pollen is high in London today" headline above the pollen index as a big numeral, a grass, tree and weed breakdown and a five-day outlook, on a warm off-white almanac-style page',
+		ispowercheap:
+			'ispowercheap.co.uk showing a huge "YES" on a green-tinted full-screen background, the line "wind is meeting 62% of demand right now" beneath it, an outlook strip of upcoming cheap and peak windows and appliance chips for the dishwasher, washing machine and EV charge'
 	};
 
 	const imageAlt = $derived(alts[data.meta.slug] ?? `${data.meta.company} product screenshot`);
