@@ -37,13 +37,13 @@ Implera never writes to your repository. No pull requests, no commits, no branch
 
 Each repository is scored out of 100 across seven weighted domains:
 
-- **Security (20%)** — committed secrets, dangerous APIs, dependency vulnerabilities, licence compliance
-- **Testing (20%)** — test ratio, real coverage from LCOV and Istanbul reports, CI presence, test quality
-- **Architecture (20%)** — circular dependencies, change coupling, complexity hotspots, module boundaries
-- **Performance (10%)** — N+1 patterns, heavy imports, sequential awaits, file size
-- **Dependencies (10%)** — vulnerability scanning against OSV for npm and PyPI, licence classification via SPDX, lockfile integrity
-- **Accessibility (10%)** — 10 WCAG patterns across templates and CSS
-- **Documentation (10%)** — README quality, environment variable coverage, documentation sync, key file presence
+- **Security (20%):** committed secrets, dangerous APIs, dependency vulnerabilities, licence compliance
+- **Testing (20%):** test ratio, real coverage from LCOV and Istanbul reports, CI presence, test quality
+- **Architecture (20%):** circular dependencies, change coupling, complexity hotspots, module boundaries
+- **Performance (10%):** N+1 patterns, heavy imports, sequential awaits, file size
+- **Dependencies (10%):** vulnerability scanning against OSV for npm and PyPI, licence classification via SPDX, lockfile integrity
+- **Accessibility (10%):** 10 WCAG patterns across templates and CSS
+- **Documentation (10%):** README quality, environment variable coverage, documentation sync, key file presence
 
 ### Two-layer analysis
 

@@ -51,14 +51,14 @@ On top of the heuristics, an async layer queries external reputation sources. Th
 
 Eight sources, four of which need a free key:
 
-- **RDAP** — domain registration date, so a domain registered last week is weighted heavily and one older than three years gets a small negative weight
-- **DNS** — does the site resolve, does the mail domain have an MX record
-- **Google Safe Browsing** — malware and social-engineering flags
-- **URLhaus** — known malware-distribution URLs
-- **OpenPhish** — a community phishing-URL feed, refreshed every twelve hours and held in memory
-- **StopForumSpam** — spam senders reported by email address
-- **EmailRep.io** — email reputation and breach history
-- **IPQualityScore** — fraud scores for URLs, emails and phone numbers, behind a circuit breaker that skips the endpoint for an hour if the quota is exhausted
+- **RDAP:** domain registration date, so a domain registered last week is weighted heavily and one older than three years gets a small negative weight
+- **DNS:** does the site resolve, does the mail domain have an MX record
+- **Google Safe Browsing:** malware and social-engineering flags
+- **URLhaus:** known malware-distribution URLs
+- **OpenPhish:** a community phishing-URL feed, refreshed every twelve hours and held in memory
+- **StopForumSpam:** spam senders reported by email address
+- **EmailRep.io:** email reputation and breach history
+- **IPQualityScore:** fraud scores for URLs, emails and phone numbers, behind a circuit breaker that skips the endpoint for an hour if the quota is exhausted
 
 There is no free public feed of UK crowd-sourced reported scam phone numbers. IPQS's abuse-network score is the closest freely available signal, and the privacy page says so plainly rather than implying more coverage than exists.
 

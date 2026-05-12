@@ -51,7 +51,7 @@
 
 <PageHeader
 	title="Products"
-	subtitle="Products I've built independently. Each one starts with a real problem and is shaped by constraints around usability, performance and keeping the system simple enough to maintain."
+	subtitle="Products I've designed, built and run independently. Each one starts with a real problem and is shaped by constraints around usability, performance and keeping the system simple enough to maintain."
 />
 
 <ul class="product-list">
@@ -78,7 +78,7 @@
 				{/if}
 
 				<div class="product-body">
-					<p class="product-meta">{entry.role} · {entry.period}</p>
+					<p class="product-meta">{entry.period}</p>
 					<h2 class="product-name">{entry.company}</h2>
 					<p class="product-tagline">{taglines[entry.slug] ?? entry.title}</p>
 					<p class="product-summary">{entry.summary}</p>
