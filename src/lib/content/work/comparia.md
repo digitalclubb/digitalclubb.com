@@ -1,7 +1,6 @@
 ---
 title: "Structured decision-making without the research rabbit hole"
 company: "Comparia"
-role: "Built independently"
 period: "2026"
 summary: "A decision tool that replaces hours of tab-hopping with a structured comparison. Describe what you're deciding, set your priorities and get a scored recommendation with transparent reasoning."
 order: 3

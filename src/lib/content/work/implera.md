@@ -1,7 +1,6 @@
 ---
 title: "Watching the quality of AI-written code"
 company: "Implera"
-role: "Built independently"
 period: "2026"
 summary: "A codebase quality intelligence platform that scores repositories across seven domains. Deterministic static analysis runs first, then AI specialist reviewers examine high-signal files. The output is a single explainable score that tracks over time."
 order: 2

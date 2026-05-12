@@ -35,8 +35,6 @@
 		<h1 class="case-study-name">{data.meta.company}</h1>
 		<p class="case-study-tagline">{data.meta.title}</p>
 		<div class="case-study-meta">
-			<span class="case-study-role">{data.meta.role}</span>
-			<span class="case-study-separator" aria-hidden="true">&middot;</span>
 			<span class="case-study-period">{data.meta.period}</span>
 			{#if data.meta.url}
 				<span class="case-study-separator" aria-hidden="true">&middot;</span>
@@ -123,10 +121,6 @@
 		margin-block-start: var(--space-md);
 		font-size: var(--text-sm);
 		color: var(--color-text-tertiary);
-	}
-
-	.case-study-role {
-		font-weight: 500;
 	}
 
 	.case-study-separator {

@@ -1,7 +1,6 @@
 ---
 title: "Externalising the mental load of household admin"
 company: "RemindWise"
-role: "Built independently"
 period: "2026"
 summary: "A household renewal tracker that sends reminders before things lapse. Built to solve a real problem: the invisible labour of remembering dozens of deadlines that nobody writes down."
 order: 1

@@ -1,7 +1,6 @@
 ---
 title: "The only question hay fever asks, answered fast"
 company: "ispollenhigh.co.uk"
-role: "Built independently"
 period: "2026"
 summary: "A microsite that does one thing. Load it and it works out where you are and tells you whether pollen is high right now, with a grass, tree and weed breakdown, a five-day outlook and the dominant local species. No accounts, no ads, no blog."
 order: 6

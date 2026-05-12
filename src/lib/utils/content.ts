@@ -1,7 +1,6 @@
 export interface WorkMeta {
 	title: string;
 	company: string;
-	role: string;
 	period: string;
 	summary: string;
 	slug: string;

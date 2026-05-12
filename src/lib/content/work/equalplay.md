@@ -1,7 +1,6 @@
 ---
 title: "Fair playing time for youth sports, without the mental arithmetic"
 company: "Equal Play"
-role: "Built independently"
 period: "2026"
 summary: "A mobile-first web app that generates fair team rotations for youth sports coaches. Handles substitutions, late arrivals and injuries and tracks cumulative fairness across a session."
 order: 4

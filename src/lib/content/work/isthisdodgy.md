@@ -1,7 +1,6 @@
 ---
 title: "Telling scams from the real thing, in plain English"
 company: "isthisdodgy.co.uk"
-role: "Built independently"
 period: "2026"
 summary: "A single-purpose scam checker. Paste a link, email address, phone number or message and get one of four plain-English verdicts, the reasons behind it and what to do next. No signup, no database, nothing about what you paste is stored."
 order: 5

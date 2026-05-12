@@ -1,7 +1,6 @@
 ---
 title: "One word for whether electricity is cheap right now"
 company: "ispowercheap.co.uk"
-role: "Built independently"
 period: "2026"
 summary: "One huge word that answers 'is it cheap to use electricity right now?'. For the 95% of UK households on a flat rate the honest answer is about carbon intensity, not money, so that is what it shows, with a plain-English reason. The half-hourly minority get an opt-in price overlay."
 order: 7
