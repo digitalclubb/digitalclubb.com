@@ -18,7 +18,9 @@
 		ispollenhigh:
 			'ispollenhigh.co.uk showing a large "yes, pollen is high in London today" headline above the pollen index as a big numeral, a grass, tree and weed breakdown and a five-day outlook, on a warm off-white almanac-style page',
 		ispowercheap:
-			'ispowercheap.co.uk showing a huge "YES" on a green-tinted full-screen background, the line "wind is meeting 62% of demand right now" beneath it, an outlook strip of upcoming cheap and peak windows and appliance chips for the dishwasher, washing machine and EV charge'
+			'ispowercheap.co.uk showing a huge "YES" on a green-tinted full-screen background, the line "wind is meeting 62% of demand right now" beneath it, an outlook strip of upcoming cheap and peak windows and appliance chips for the dishwasher, washing machine and EV charge',
+		isthisaromanroad:
+			'isthisaromanroad.com showing a large serif "Yes." verdict on parchment with a thin gold rule beneath, the italic sub-line "You stand on the line of Watling Street", and a parchment-toned map alongside with the road traced as a terracotta line through Kent and a verdigris pin marking the user\'s location'
 	};
 
 	const imageAlt = $derived(alts[data.meta.slug] ?? `${data.meta.company} product screenshot`);

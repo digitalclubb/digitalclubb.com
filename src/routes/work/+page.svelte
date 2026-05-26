@@ -12,7 +12,8 @@
 		equalplay: 'Fair rotations for youth sport',
 		isthisdodgy: 'Plain-English scam checking',
 		ispollenhigh: 'UK pollen levels, answered fast',
-		ispowercheap: 'When the grid is cheap, in one word'
+		ispowercheap: 'When the grid is cheap, in one word',
+		isthisaromanroad: 'Roman roads, identified from where you stand'
 	};
 
 	const images: Record<string, { src: string; alt: string }> = {
@@ -43,6 +44,10 @@
 		ispowercheap: {
 			src: '/products/ispowercheap.png',
 			alt: 'ispowercheap.co.uk showing a huge "YES" on a green-tinted full-screen background, the line "wind is meeting 62% of demand right now" beneath it, an outlook strip of upcoming cheap and peak windows and appliance chips for the dishwasher, washing machine and EV charge'
+		},
+		isthisaromanroad: {
+			src: '/products/isthisaromanroad.png',
+			alt: 'isthisaromanroad.com showing a large serif "Yes." verdict on parchment with a thin gold rule beneath, the italic sub-line "You stand on the line of Watling Street", and a parchment-toned map alongside with the road traced as a terracotta line through Kent and a verdigris pin marking the user\'s location'
 		}
 	};
 </script>
