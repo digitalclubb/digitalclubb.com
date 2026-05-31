@@ -20,7 +20,9 @@
 		ispowercheap:
 			'ispowercheap.co.uk showing a huge "YES" on a green-tinted full-screen background, the line "wind is meeting 62% of demand right now" beneath it, an outlook strip of upcoming cheap and peak windows and appliance chips for the dishwasher, washing machine and EV charge',
 		isthisaromanroad:
-			'isthisaromanroad.com showing a large serif "Yes." verdict on parchment with a thin gold rule beneath, the italic sub-line "You stand on the line of Watling Street", and a parchment-toned map alongside with the road traced as a terracotta line through Kent and a verdigris pin marking the user\'s location'
+			'isthisaromanroad.com showing a large serif "Yes." verdict on parchment with a thin gold rule beneath, the italic sub-line "You stand on the line of Watling Street", and a parchment-toned map alongside with the road traced as a terracotta line through Kent and a verdigris pin marking the user\'s location',
+		isitsafetoswim:
+			'isitsafetoswim.com showing an editorial verdict card on warm off-white paper: a red tone stripe, the location kicker "Brighton Central", the bathing-water name in big serif and a huge serif "No." with the reason "Sewage discharged 1.2km away 3 hours ago" beside it, a three-stripe green amber red rule under the masthead and an "Updated 2 minutes ago" line'
 	};
 
 	const imageAlt = $derived(alts[data.meta.slug] ?? `${data.meta.company} product screenshot`);

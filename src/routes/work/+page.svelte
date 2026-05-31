@@ -13,7 +13,8 @@
 		isthisdodgy: 'Plain-English scam checking',
 		ispollenhigh: 'UK pollen levels, answered fast',
 		ispowercheap: 'When the grid is cheap, in one word',
-		isthisaromanroad: 'Roman roads, identified from where you stand'
+		isthisaromanroad: 'Roman roads, identified from where you stand',
+		isitsafetoswim: 'Is it safe to swim here today, in one tap'
 	};
 
 	const images: Record<string, { src: string; alt: string }> = {
@@ -48,6 +49,10 @@
 		isthisaromanroad: {
 			src: '/products/isthisaromanroad.png',
 			alt: 'isthisaromanroad.com showing a large serif "Yes." verdict on parchment with a thin gold rule beneath, the italic sub-line "You stand on the line of Watling Street", and a parchment-toned map alongside with the road traced as a terracotta line through Kent and a verdigris pin marking the user\'s location'
+		},
+		isitsafetoswim: {
+			src: '/products/isitsafetoswim.png',
+			alt: 'isitsafetoswim.com showing an editorial verdict card on warm off-white paper: a red tone stripe, the location kicker "Brighton Central", the bathing-water name in big serif and a huge serif "No." with the reason "Sewage discharged 1.2km away 3 hours ago" beside it, a three-stripe green amber red rule under the masthead and an "Updated 2 minutes ago" line'
 		}
 	};
 </script>
